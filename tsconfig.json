@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "sourceMap": true,
+    "rootDir": "src",
+    "baseUrl": "./",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    // "noImplicitAny": true,
+    "importHelpers": true,
+    // "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    // "noUnusedLocals": true,
+    "paths": {
+      "src/*": ["./src/*"],
+      "@src/*": ["./src/*"],
+    },
+    "outDir": "dist",
+    "lib": [
+      "esnext", "dom"
+    ],
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin",
+        // "name": "ts-graphql-plugin"
+      }
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ],
+  }
+}

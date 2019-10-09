@@ -1,0 +1,32 @@
+{
+  "name": "discography-check",
+  "version": "0.1.0",
+  "description": "Checks if your metal discography is complete using metallum data",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucianourgal/discography-check.git"
+  },
+  "keywords": [
+    "metal",
+    "metallum",
+    "files"
+  ],
+  "author": "Luciano Urgal Pando and Tiago Stapenhorst Martins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucianourgal/discography-check/issues"
+  },
+  "homepage": "https://github.com/lucianourgal/discography-check#readme",
+  "dependencies": {
+    "localenv": "^0.2.2",
+    "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.9.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.6.3"
+  }
+}

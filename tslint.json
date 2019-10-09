@@ -1,0 +1,19 @@
+{
+    "defaultSeverity": "warning",
+    // "extends": [
+    //     "tslint:recommended"
+    // ],
+    "jsRules": {},
+    "rules": { 
+        "variable-name": true
+        // "semicolon": [true, "never"] 
+    },
+    "rulesDirectory": [],
+    "linterOptions": {
+        "exclude": [
+            "dist",
+            "**/_generated",
+            "node_modules"
+        ]
+    }
+}
