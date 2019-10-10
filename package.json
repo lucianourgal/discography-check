@@ -23,10 +23,15 @@
   },
   "homepage": "https://github.com/lucianourgal/discography-check#readme",
   "dependencies": {
+    "directory-tree": "^2.2.4",
     "localenv": "^0.2.2",
+    "lodash": "^4.17.15",
     "ts-node": "^8.4.1",
     "tsconfig-paths": "^3.9.0",
     "tslib": "^1.10.0",
     "typescript": "^3.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.12"
   }
 }

@@ -9,6 +9,13 @@
 - Luciano Urgal Pando<br>
 - Tiago Stapenhorst Martins<br>
 
+# Usefull links
+- https://www.npmjs.com/package/directory-tree <br>
+- https://www.discogs.com/ <br>
+- https://musicbrainz.org/doc/Developer_Resources <br>
+- https://www.allmusic.com/ <br>
+- https://www.last.fm <br>
+
 # Donations
 If you liked this project, please donate bitcoin to address:<br>
 bc1qdatj9208rx9rjt58zc2q432ggwfdvzklt4v9x5
