@@ -1,21 +1,19 @@
 import { readFolders, MetalFolder } from "./readFolders"
 import { MetalBand } from './bandClass';
-import { writeFileSync } from 'fs';
+import { generateReportOutputs } from './util';
 
 
 console.log("CHOCOLATE!!!!")
 
 // Reads folder location from configs.txt file
-const metalFolderAddress = 'D:\\METAL'
+const metalFolderAddress = 'E:\\Music'
 
 // Reads all subfolders from selected folder
 const metalFolderObj: MetalFolder = readFolders(metalFolderAddress);
 
 // Treats first level folders as bands
 let bandObjs: MetalBand[] = metalFolderObj.children.map(bandFolder => new MetalBand(bandFolder));
-bandObjs = bandObjs.filter(band => band.getIsBand())
-const reports = bandObjs.map(el => el.getReport());
-writeFileSync('outputs/Your metal folders report.txt', reports.join('\n'));
+generateReportOutputs(bandObjs);
 
 // Extracts infos about found bands from metallum
 
