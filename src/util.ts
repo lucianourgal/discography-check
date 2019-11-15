@@ -13,8 +13,8 @@ export const generateReportOutputs = (bandObjs: MetalBand[]) => {
     const bandAlbunsCsv = flatten(bandAlbums.map(band => band.albumNames.map((album:string):string => band.bandName+';'+album)));
     writeFileSync('outputs/You metal albums report.csv', bandAlbunsCsv.join('\n') );
 
-    const bandAlbunsErrors = bandObjs.map(el => el.getBandAlbumErrors());
-    writeFileSync('outputs/You metal albums naming errors.txt',bandAlbunsErrors.join('') );
+    const bandAlbunsErrors = bandObjs.map(el => el.getBandAlbumErrors()).filter(el => !!el);
+    writeFileSync('outputs/You metal albums naming errors.txt', '\n'+bandAlbunsErrors.join('') );
 
     
 }

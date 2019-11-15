@@ -88,15 +88,17 @@ class MetalAlbum {
         this.bandName = bandName;
         this.error = '';
 
+        this.files = folder.children ? 
+        folder.children.filter(el => el.type === 'file') : [];
+        this.songs = getSongsFromChildArray(this.files);
+
         if(folder.type === 'file') {
             this.isAlbum = false;
             return;
         } else {
-            this.isAlbum = true;
+            this.isAlbum = this.songs.length > 0;
         }
 
-        this.files = folder.children.filter(el => el.type === 'file')
-        this.songs = getSongsFromChildArray(this.files)
     }
 
     public getIsAlbum() {
@@ -118,7 +120,7 @@ class MetalAlbum {
         let filtered = this.removeAnnotation(str, '(', ')');
         // remove []
         filtered = this.removeAnnotation(filtered, '[', ']');
-        // remove Year 
+        // Ignores anything before - symbol 
         if(filtered.includes('-')) {
             filtered = filtered.split('-')[1];
         }
@@ -131,9 +133,9 @@ class MetalAlbum {
             let error = '';
             const splitStart = str.split(annStart);
             if(splitStart.length !== 2) {
-                this.error = 'Alert: "' + str + '" has too much "'+annStart+'"  ('+this.bandName+')\n'
+                this.error = 'Alert: "' + str + '" has too much "'+annStart+'"  ('+this.bandName+') returning "'+splitStart[0]+'"\n'
                 console.log(this.error);
-                return str;
+                return splitStart[0];
             }
             const splitEnd = splitStart[1].split(annEnd);
             if(splitEnd.length !== 2) {
