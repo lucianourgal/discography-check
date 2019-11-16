@@ -1,7 +1,6 @@
 import { MetalBand } from './bandClass';
 import { writeFileSync } from 'fs';
 import { flatten } from 'lodash'
-import { MetalFolder } from './readFolders';
 
 export const generateReportOutputs = (bandObjs: MetalBand[]) => {
 

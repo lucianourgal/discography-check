@@ -28,7 +28,7 @@
 
 # Usefull links
 - https://www.npmjs.com/package/directory-tree <br>
-- https://www.discogs.com/ <br>
+- https://www.discogs.com/developers <br>
 - https://musicbrainz.org/doc/Developer_Resources <br>
 - https://www.allmusic.com/ <br>
 - https://www.last.fm <br>
