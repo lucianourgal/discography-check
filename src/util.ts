@@ -8,35 +8,30 @@ export const generateReportOutputs = (bandObjs: MetalBand[]) => {
     bandObjs = bandObjs.filter(band => band.getIsBand())
     let reportFileName = '';
 
-    try {
-        reportFileName = 'outputs/Your metal folders report.txt'
-        const reports = bandObjs.map(el => el.getReport());
-        writeFileSync(reportFileName, metalBandsArrMetadata(bandObjs) + reports.join('\n'));
-    } catch (e) {
-        console.log('[ERROR] Could not save ' + reportFileName + ' to disk.')
-    }
+    reportFileName = 'outputs/Your metal folders report.txt'
+    const reports = bandObjs.map(el => el.getReport());
+    writeFileTryCatchWrap(reportFileName, metalBandsArrMetadata(bandObjs) + reports.join('\n'));
 
-    try {
-        reportFileName = 'outputs/You metal albums report.csv'
-        const bandAlbums = bandObjs.map(el => el.getBandAlbumList())
-        const bandAlbunsCsv = flatten(bandAlbums.map(band => band.albumNames.map((album: string): string => band.bandName + ';' + album)));
-        writeFileSync(reportFileName, bandAlbunsCsv.join('\n'));
-    } catch (e) {
-        console.log('[ERROR] Could not save ' + reportFileName + ' to disk.')
-    }
+    reportFileName = 'outputs/You metal albums report.csv'
+    const bandAlbums = bandObjs.map(el => el.getBandAlbumList())
+    const bandAlbunsCsv = flatten(bandAlbums.map(band => band.albumNames.map((album: string): string => band.bandName + ';' + album)));
+    writeFileTryCatchWrap(reportFileName, bandAlbunsCsv.join('\n'));
 
-    try {
-        reportFileName = 'outputs/You metal albums naming errors.txt'
-        const bandAlbunsErrors = bandObjs.map(el => el.getBandAlbumErrors()).filter(el => !!el);
-        writeFileSync(reportFileName, '\n' + bandAlbunsErrors.join(''));
-    } catch (e) {
-        console.log('[ERROR] Could not save ' + reportFileName + ' to disk.')
-    }
-
+    reportFileName = 'outputs/You metal albums naming errors.txt'
+    const bandAlbunsErrors = bandObjs.map(el => el.getBandAlbumErrors()).filter(el => !!el);
+    writeFileTryCatchWrap(reportFileName, '\n' + bandAlbunsErrors.join(''));
 
     console.log('Reports about your local metal library were saved to outputs folder');
 }
 
+
+const writeFileTryCatchWrap = (fileName: string, text: string) => {
+    try {
+        writeFileSync(fileName, text);
+    } catch (e) {
+        console.log('[ERROR] Could not save ' + fileName + ' to disk.')
+    }
+}
 
 const metalBandsArrMetadata = (bands: MetalBand[]) => {
     let albunsCounts = bands.map(band => band.getAlbunsCount());
@@ -48,17 +43,4 @@ const metalBandsArrMetadata = (bands: MetalBand[]) => {
 
     return bands.length + ' bands, ' + albuns + ' albums and ' + songs + ' songs found.' +
         '\n\n';
-}
-
-
-export const extractMetalBandsFromMetalFolder = (folder: MetalFolder, genreFoldersBelow: boolean = false): MetalBand[] => {
-
-    if (genreFoldersBelow) {
-        const genreFolders = folder.children;
-        const metalBandFolders: MetalBand[] = flatten(genreFolders.map(genreFolder => genreFolder.children.map(bandFolder => new MetalBand(bandFolder))));
-        return metalBandFolders;
-    } else {
-        return folder.children.map(bandFolder => new MetalBand(bandFolder));
-    }
-
 }

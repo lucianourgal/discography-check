@@ -1,5 +1,7 @@
 import dirTree = require("directory-tree");
 import { writeFileSync } from 'fs';
+import { MetalBand } from './bandClass';
+import { flatten } from 'lodash';
 
 export const songsFormats =  ['mp3','wma', 'wav', 'ogg', 'flac', 'm4a', 'aac'];
 
@@ -17,12 +19,17 @@ export const readFolders = (folder: string): MetalFolder => {
     return Convert.toMetalFolder(jsonString);
 }
 
+export const extractMetalBandsFromMetalFolder = (folder: MetalFolder, genreFoldersBelow: boolean = false): MetalBand[] => {
 
-// To parse this data:
-//
-//   import { Convert, MetalFolder } from "./file";
-//
-//   const metalFolder = Convert.toMetalFolder(json);
+    if (genreFoldersBelow) {
+        const genreFolders = folder.children;
+        const metalBandFolders: MetalBand[] = flatten(genreFolders.map(genreFolder => genreFolder.children.map(bandFolder => new MetalBand(bandFolder))));
+        return metalBandFolders;
+    } else {
+        return folder.children.map(bandFolder => new MetalBand(bandFolder));
+    }
+
+}
 
 export interface MetalFolder {
     path?:     string;

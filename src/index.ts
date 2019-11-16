@@ -1,6 +1,6 @@
-import { readFolders, MetalFolder } from "./readFolders"
+import { readFolders, MetalFolder, extractMetalBandsFromMetalFolder } from "./readFolders"
 import { MetalBand } from './bandClass';
-import { generateReportOutputs, extractMetalBandsFromMetalFolder } from './util';
+import { generateReportOutputs } from './util';
 
 
 console.log("CHOCOLATE!!!!")
