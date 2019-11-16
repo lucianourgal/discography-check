@@ -1,6 +1,6 @@
 import { readFolders, MetalFolder } from "./readFolders"
 import { MetalBand } from './bandClass';
-import { generateReportOutputs } from './util';
+import { generateReportOutputs, extractMetalBandsFromMetalFolder } from './util';
 
 
 console.log("CHOCOLATE!!!!")
@@ -12,7 +12,9 @@ const metalFolderAddress = 'E:\\Music'
 const metalFolderObj: MetalFolder = readFolders(metalFolderAddress);
 
 // Treats first level folders as bands
-let bandObjs: MetalBand[] = metalFolderObj.children.map(bandFolder => new MetalBand(bandFolder));
+const bandObjs: MetalBand[] = extractMetalBandsFromMetalFolder(metalFolderObj);
+
+// saves .txt and .csv reports
 generateReportOutputs(bandObjs);
 
 // Extracts infos about found bands from metallum

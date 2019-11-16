@@ -2,14 +2,14 @@ import { Child, MetalFolder, songsFormats } from './readFolders';
 import { flatten } from 'lodash';
 
 export class MetalBand {
-    
+
     private albuns: MetalAlbum[];
     private name: string;
-    private genres: {name: string, momment: 'early' | 'mid' | 'late'}[];
+    private genres: { name: string, momment: 'early' | 'mid' | 'late' }[];
     private isBand: boolean;
     private path: string;
     private songsInRootFolder: Child[];
-    
+
     constructor(bandData: Child) {
         this.name = bandData.name;
         this.albuns = [];
@@ -17,7 +17,7 @@ export class MetalBand {
         this.path = bandData.path;
         this.songsInRootFolder = getSongsFromChildArray(bandData.children);
 
-        if(bandData.type === 'file') {
+        if (bandData.type === 'file') {
             this.isBand = false;
             return;
         } else {
@@ -25,17 +25,18 @@ export class MetalBand {
         }
 
         // Treats second level folders as albums
-        let unfilteredAlbuns = bandData.children.map((album:Child) => new MetalAlbum(album, this.name))
+        let unfilteredAlbuns = bandData.children.map((album: Child) => new MetalAlbum(album, this.name, this.name))
 
         // Gets all thir level folders
-        const thirdLevelFoldersMatrix = bandData.children.map(secondLevel => {
-            if(secondLevel === 'file') {
+        const thirdLevelFolders: { albumFolder: Child, parentName: string }[] = flatten(bandData.children.map(secondLevel => {
+            if (secondLevel === 'file' || !secondLevel.children) {
                 return null;
-            } else return secondLevel.children;
-        });
-        const thirdLevelFolders = flatten(thirdLevelFoldersMatrix);
+            } else return secondLevel.children.map(cur => { return { albumFolder: cur, parentName: secondLevel.name } });
+        }));
+
         const thirdLevelFoldersFiltered = thirdLevelFolders.filter(el => !!el);
-        const thirdLevelAlbums = thirdLevelFoldersFiltered.map((album:Child) => new MetalAlbum(album, this.name))
+        const thirdLevelAlbums = thirdLevelFoldersFiltered.map((obj: { albumFolder: Child, parentName: string }) =>
+            new MetalAlbum(obj.albumFolder, this.name, obj.parentName))
 
         unfilteredAlbuns = [...unfilteredAlbuns, ...thirdLevelAlbums]
         this.albuns = unfilteredAlbuns.filter(el => el.getIsAlbum())
@@ -51,13 +52,26 @@ export class MetalBand {
     public getAlbunsCount() {
         return this.albuns.length;
     }
+
+    public getSongsInChildsCount() {
+        const countsPerAlbum = this.albuns.map(album => album.getSongsCount());
+        const sumReducer = (total: number, newValue: number) => total + newValue;
+
+        return countsPerAlbum.reduce(sumReducer, 0);
+    }
+
     public songsInRootFolderCount() {
         return this.songsInRootFolder.length;
     }
 
     public getReport() {
-        return this.name + ': ' + this.getAlbunsCount() + ' albums, ' + 
-        this.songsInRootFolderCount() + ' songs in root folder.'
+        const songsCount = this.songsInRootFolderCount();
+        const albunsCount = this.getAlbunsCount();
+
+        return this.name + ': ' +
+            (albunsCount ? albunsCount + ' album' + (albunsCount > 1 ? 's' : '') + '; ' : '') +
+            (songsCount ? songsCount + ' songs in root folder.' : '') +
+            ((songsCount + albunsCount) === 0 ? 'Nothing found.' : '');
     }
 
     public getBandAlbumList() {
@@ -65,9 +79,10 @@ export class MetalBand {
     }
 
     public getBandAlbumErrors() {
-        return this.albuns.map(album => album.getError());
+        const errors = this.albuns.map(album => album.getError())
+        return (errors && errors.length) ? errors.filter(el => !!el).join(',') : '';
     }
- 
+
 }
 
 class MetalAlbum {
@@ -77,22 +92,23 @@ class MetalAlbum {
     private songs: Child[];
     private path: string;
     private bandName: string;
+    private parentFolderName: string;
     private name: string;
     private error: string;
 
-    constructor(folder: MetalFolder, bandName: string) {
+    constructor(folder: MetalFolder, bandName: string, parentFolderName: string) {
 
         this.path = folder.path;
         this.name = folder.name;
-        this.path = folder.path;
         this.bandName = bandName;
+        this.parentFolderName = parentFolderName;
         this.error = '';
 
-        this.files = folder.children ? 
-        folder.children.filter(el => el.type === 'file') : [];
+        this.files = folder.children ?
+            folder.children.filter(el => el.type === 'file') : [];
         this.songs = getSongsFromChildArray(this.files);
 
-        if(folder.type === 'file') {
+        if (folder.type === 'file') {
             this.isAlbum = false;
             return;
         } else {
@@ -101,12 +117,21 @@ class MetalAlbum {
 
     }
 
+    public getSongsCount() {
+        return this.songs.length;
+    }
+
     public getIsAlbum() {
         return this.isAlbum;
     }
 
     public getFilteredAlbumName() {
-        return this.filterAlbumName(this.name);
+
+        const nameStandart = this.name.replace(' ', '').replace('2', '1').replace('3', '1').toUpperCase();
+        const isCDFolderInsideAlbumFolder = nameStandart.startsWith('CD1')
+
+        return isCDFolderInsideAlbumFolder ? this.filterAlbumName(this.parentFolderName)
+            : this.filterAlbumName(this.name);
     }
 
     public getError() {
@@ -121,25 +146,26 @@ class MetalAlbum {
         // remove []
         filtered = this.removeAnnotation(filtered, '[', ']');
         // Ignores anything before - symbol 
-        if(filtered.includes('-')) {
+        if (filtered.includes('-') && filtered.split('-')[0].length > 2) {
             filtered = filtered.split('-')[1];
         }
 
-        return filtered.trim();
+        return filtered.replace('_', ' ').trim();
     }
 
+
     private removeAnnotation(str: string, annStart: string, annEnd: string) {
-        if(str.includes(annStart) && str.includes(annEnd)) {
+        if (str.includes(annStart) && str.includes(annEnd)) {
             let error = '';
             const splitStart = str.split(annStart);
-            if(splitStart.length !== 2) {
-                this.error = 'Alert: "' + str + '" has too much "'+annStart+'"  ('+this.bandName+') returning "'+splitStart[0]+'"\n'
+            if (splitStart.length !== 2) {
+                this.error = 'Alert: "' + str + '" has too much "' + annStart + '"  (' + this.bandName + ') returning "' + splitStart[0] + '"\n'
                 console.log(this.error);
                 return splitStart[0];
             }
             const splitEnd = splitStart[1].split(annEnd);
-            if(splitEnd.length !== 2) {
-                this.error = error + 'Alert: "' + str + '" has too much "'+annEnd+'" ('+this.bandName+')\n'
+            if (splitEnd.length !== 2) {
+                this.error = error + 'Alert: "' + str + '" has too much "' + annEnd + '" (' + this.bandName + ')\n'
                 console.log(this.error);
                 return str;
             }
@@ -152,8 +178,8 @@ class MetalAlbum {
 }
 
 const getSongsFromChildArray = (arr: Child[]) => {
-    if(!arr) return [];
+    if (!arr) return [];
     const valids = arr.filter(el => el && el.extension)
-    return valids.filter(el => 
-        songsFormats.includes(el.extension.toLowerCase().replace('.','')))
+    return valids.filter(el =>
+        songsFormats.includes(el.extension.toLowerCase().replace('.', '')))
 }

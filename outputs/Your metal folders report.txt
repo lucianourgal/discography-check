@@ -1,163 +1,164 @@
-Acid Witch: 5 albums, 0 songs in root folder.
-Agalloch: 9 albums, 0 songs in root folder.
-Airbourne: 2 albums, 0 songs in root folder.
-Alcest: 3 albums, 0 songs in root folder.
-Alice Cooper: 0 albums, 10 songs in root folder.
-Amon Amarth: 11 albums, 0 songs in root folder.
-Amorphis: 5 albums, 0 songs in root folder.
-Andre Matos: 4 albums, 0 songs in root folder.
-Angra: 9 albums, 0 songs in root folder.
-Annihilator: 10 albums, 0 songs in root folder.
-Arch Enemy: 9 albums, 0 songs in root folder.
-Arkan: 3 albums, 0 songs in root folder.
-Atheist: 4 albums, 0 songs in root folder.
-Bathory: 12 albums, 0 songs in root folder.
-Batushka: 2 albums, 0 songs in root folder.
-Benediction: 9 albums, 0 songs in root folder.
-Beyond Creation: 2 albums, 0 songs in root folder.
-Black Sabbath: 19 albums, 0 songs in root folder.
-Bloodbath: 6 albums, 0 songs in root folder.
-Bolt Thrower: 10 albums, 0 songs in root folder.
-Borknagar: 11 albums, 0 songs in root folder.
-Burzum: 10 albums, 0 songs in root folder.
-Caladan Brood: 1 albums, 0 songs in root folder.
-Candlemass: 3 albums, 0 songs in root folder.
-Cannibal Corpse: 11 albums, 0 songs in root folder.
-Carach Angren: 5 albums, 0 songs in root folder.
-Carcass: 8 albums, 0 songs in root folder.
-Carpathian Forest: 11 albums, 0 songs in root folder.
-Cavalera conspiracy: 2 albums, 0 songs in root folder.
-Celtic Frost: 6 albums, 0 songs in root folder.
-Children of Bodom: 9 albums, 0 songs in root folder.
-Claustrofobia: 5 albums, 0 songs in root folder.
-Coroner: 8 albums, 0 songs in root folder.
-Crashdiet: 2 albums, 0 songs in root folder.
-Crom: 1 albums, 0 songs in root folder.
-Cryptopsy: 7 albums, 0 songs in root folder.
-Danzig: 0 albums, 22 songs in root folder.
-Dark Forest: 3 albums, 0 songs in root folder.
-Dark Moor: 2 albums, 0 songs in root folder.
-Dark Tranquillity: 2 albums, 0 songs in root folder.
-Darkthrone: 18 albums, 0 songs in root folder.
-Death: 7 albums, 0 songs in root folder.
-Deathstars: 0 albums, 16 songs in root folder.
-Decapitated: 3 albums, 0 songs in root folder.
-Dio: 0 albums, 13 songs in root folder.
-Dissection: 6 albums, 0 songs in root folder.
-Draconian: 5 albums, 0 songs in root folder.
-Dvd do fabio: 3 albums, 0 songs in root folder.
-Dying Fetus: 7 albums, 0 songs in root folder.
-Electric Wizard: 7 albums, 0 songs in root folder.
-Eluveitie: 6 albums, 0 songs in root folder.
-Enisum: 2 albums, 0 songs in root folder.
-Enthroned: 10 albums, 0 songs in root folder.
-Equilibrium: 3 albums, 0 songs in root folder.
-Estatic Fear: 1 albums, 2 songs in root folder.
-Evergrey: 8 albums, 0 songs in root folder.
-Evile: 4 albums, 0 songs in root folder.
-Exodus: 9 albums, 0 songs in root folder.
-Falkenbach: 6 albums, 0 songs in root folder.
-FinnTroll: 7 albums, 0 songs in root folder.
-Folkodia: 2 albums, 0 songs in root folder.
-Foo Fighters: 0 albums, 16 songs in root folder.
-Frigoris: 1 albums, 0 songs in root folder.
-Ghost: 2 albums, 0 songs in root folder.
-Grave Digger: 18 albums, 0 songs in root folder.
-Hammerfall: 9 albums, 0 songs in root folder.
-Hardcore Superstar: 4 albums, 0 songs in root folder.
-Havok: 4 albums, 0 songs in root folder.
-Hellowen: 4 albums, 0 songs in root folder.
-Hirax: 0 albums, 0 songs in root folder.
-Holy Moses: 11 albums, 0 songs in root folder.
-Hypocrisy: 12 albums, 0 songs in root folder.
-Iced Earth: 1 albums, 0 songs in root folder.
-Immortal: 9 albums, 0 songs in root folder.
-In Extremo: 11 albums, 0 songs in root folder.
-In Solitude: 3 albums, 0 songs in root folder.
-Insomnium: 5 albums, 0 songs in root folder.
-Iron Maiden: 16 albums, 0 songs in root folder.
-Judas Priest: 0 albums, 17 songs in root folder.
-Kamelot: 0 albums, 12 songs in root folder.
-Kataklysm: 9 albums, 0 songs in root folder.
-Katatonia: 10 albums, 0 songs in root folder.
-King Diamond: 12 albums, 0 songs in root folder.
-Korpiklaani: 8 albums, 0 songs in root folder.
-Korzus: 7 albums, 1 songs in root folder.
-Kreator: 15 albums, 0 songs in root folder.
-Krisiun: 4 albums, 0 songs in root folder.
-Lamúria Abissal: 1 albums, 0 songs in root folder.
-Lordi: 5 albums, 0 songs in root folder.
-Manowar best: 0 albums, 14 songs in root folder.
-Matanza: 5 albums, 0 songs in root folder.
-Megadeth: 18 albums, 0 songs in root folder.
-Mercyful Fate: 8 albums, 0 songs in root folder.
-Metallica: 9 albums, 1 songs in root folder.
-Mgła: 6 albums, 0 songs in root folder.
-Misfits: 0 albums, 32 songs in root folder.
-Moonspell: 14 albums, 0 songs in root folder.
-Morbid Angel: 8 albums, 0 songs in root folder.
-Motorhead: 25 albums, 0 songs in root folder.
-Municipal Waste: 4 albums, 0 songs in root folder.
-Murder rape: 0 albums, 4 songs in root folder.
-Nargaroth: 13 albums, 0 songs in root folder.
-Necrophagist: 3 albums, 0 songs in root folder.
-Necropsya: 0 albums, 14 songs in root folder.
-Nevermore: 10 albums, 0 songs in root folder.
-Nile: 7 albums, 0 songs in root folder.
-Norther: 11 albums, 0 songs in root folder.
-Nuclear Assault: 6 albums, 0 songs in root folder.
-Obituary: 10 albums, 0 songs in root folder.
-Obscura: 3 albums, 0 songs in root folder.
-Outros: 2 albums, 8 songs in root folder.
-Ozzy osbourne: 9 albums, 0 songs in root folder.
-Pantera: 6 albums, 0 songs in root folder.
-Paradise Lost: 15 albums, 0 songs in root folder.
-Peste Noire: 2 albums, 0 songs in root folder.
-Pestilence: 10 albums, 0 songs in root folder.
-Plaga: 3 albums, 0 songs in root folder.
-Possessed: 21 albums, 0 songs in root folder.
-Powerwolf: 7 albums, 0 songs in root folder.
-Rammstein: 9 albums, 0 songs in root folder.
-Rotting Christ: 12 albums, 0 songs in root folder.
-Sabaton: 2 albums, 0 songs in root folder.
-Sarcófago: 6 albums, 0 songs in root folder.
-Satanic Warmaster: 11 albums, 0 songs in root folder.
-Satyricon: 8 albums, 0 songs in root folder.
-Saxon: 5 albums, 0 songs in root folder.
-Scorpions: 0 albums, 16 songs in root folder.
-Sepultura: 2 albums, 0 songs in root folder.
-Shaman: 4 albums, 0 songs in root folder.
-Shining: 11 albums, 0 songs in root folder.
-Skyclad: 14 albums, 0 songs in root folder.
-Slayer: 10 albums, 0 songs in root folder.
-Sodom: 14 albums, 0 songs in root folder.
-Stratovarius: 1 albums, 0 songs in root folder.
-Suffocation: 8 albums, 0 songs in root folder.
-Summoning: 7 albums, 0 songs in root folder.
-Taake: 5 albums, 0 songs in root folder.
-Talamyus: 1 albums, 0 songs in root folder.
-Tankard: 15 albums, 0 songs in root folder.
-Testament: 12 albums, 0 songs in root folder.
-The 69 eyes: 12 albums, 0 songs in root folder.
-The Faceless: 1 albums, 0 songs in root folder.
-The Ramones: 0 albums, 20 songs in root folder.
-The Sisters of Mercy: 6 albums, 0 songs in root folder.
-Therion: 18 albums, 0 songs in root folder.
-Thy Light: 3 albums, 0 songs in root folder.
-Tiamat: 9 albums, 0 songs in root folder.
-Tsjuder: 6 albums, 0 songs in root folder.
-Turisas: 3 albums, 0 songs in root folder.
-Type O Negative: 7 albums, 0 songs in root folder.
-TYR: 3 albums, 0 songs in root folder.
-Unleashed: 11 albums, 0 songs in root folder.
-Urgehal: 11 albums, 0 songs in root folder.
-Vader: 15 albums, 0 songs in root folder.
-Vains of jenna: 3 albums, 0 songs in root folder.
-Velho: 4 albums, 0 songs in root folder.
-Venom: 14 albums, 0 songs in root folder.
-Vintersorg: 4 albums, 0 songs in root folder.
-Vision Divine: 1 albums, 14 songs in root folder.
-Watain: 7 albums, 0 songs in root folder.
-Whitesnake: 3 albums, 0 songs in root folder.
-Wolf: 3 albums, 0 songs in root folder.
-Wulfgar: 1 albums, 0 songs in root folder.
+162 bands, 1067 albums and 11023 songs found.
+
+Acid Witch: 5 albums; 
+Agalloch: 9 albums; 
+Airbourne: 2 albums; 
+Alcest: 3 albums; 
+Alice Cooper: 10 songs in root folder.
+Amon Amarth: 11 albums; 
+Amorphis: 5 albums; 
+Andre Matos: 4 albums; 
+Angra: 9 albums; 
+Annihilator: 10 albums; 
+Arch Enemy: 9 albums; 
+Arkan: 3 albums; 
+Atheist: 4 albums; 
+Bathory: 12 albums; 
+Batushka: 2 albums; 
+Benediction: 9 albums; 
+Beyond Creation: 2 albums; 
+Black Sabbath: 19 albums; 
+Bloodbath: 6 albums; 
+Bolt Thrower: 10 albums; 
+Borknagar: 11 albums; 
+Burzum: 10 albums; 
+Caladan Brood: 1 album; 
+Candlemass: 3 albums; 
+Cannibal Corpse: 11 albums; 
+Carach Angren: 5 albums; 
+Carcass: 8 albums; 
+Carpathian Forest: 11 albums; 
+Cavalera conspiracy: 2 albums; 
+Celtic Frost: 6 albums; 
+Children of Bodom: 9 albums; 
+Claustrofobia: 5 albums; 
+Coroner: 8 albums; 
+Crashdiet: 2 albums; 
+Crom: 1 album; 
+Cryptopsy: 7 albums; 
+Danzig: 22 songs in root folder.
+Dark Forest: 3 albums; 
+Dark Moor: 2 albums; 
+Dark Tranquillity: 2 albums; 
+Darkthrone: 18 albums; 
+Death: 7 albums; 
+Deathstars: 16 songs in root folder.
+Decapitated: 3 albums; 
+Dio: 13 songs in root folder.
+Dissection: 6 albums; 
+Draconian: 5 albums; 
+Dvd do fabio: 3 albums; 
+Dying Fetus: 7 albums; 
+Electric Wizard: 7 albums; 
+Eluveitie: 6 albums; 
+Enisum: 2 albums; 
+Enthroned: 10 albums; 
+Equilibrium: 3 albums; 
+Estatic Fear: 1 album; 2 songs in root folder.
+Evergrey: 8 albums; 
+Evile: 4 albums; 
+Exodus: 9 albums; 
+Falkenbach: 6 albums; 
+FinnTroll: 7 albums; 
+Folkodia: 2 albums; 
+Foo Fighters: 16 songs in root folder.
+Frigoris: 1 album; 
+Ghost: 2 albums; 
+Grave Digger: 18 albums; 
+Hammerfall: 9 albums; 
+Hardcore Superstar: 4 albums; 
+Havok: 4 albums; 
+Hellowen: 4 albums; 
+Holy Moses: 11 albums; 
+Hypocrisy: 12 albums; 
+Iced Earth: 1 album; 
+Immortal: 9 albums; 
+In Extremo: 11 albums; 
+In Solitude: 3 albums; 
+Insomnium: 5 albums; 
+Iron Maiden: 16 albums; 
+Judas Priest: 17 songs in root folder.
+Kamelot: 12 songs in root folder.
+Kataklysm: 9 albums; 
+Katatonia: 10 albums; 
+King Diamond: 12 albums; 
+Korpiklaani: 8 albums; 
+Korzus: 7 albums; 1 songs in root folder.
+Kreator: 15 albums; 
+Krisiun: 4 albums; 
+Lamúria Abissal: 1 album; 
+Lordi: 5 albums; 
+Manowar best: 14 songs in root folder.
+Matanza: 5 albums; 
+Megadeth: 18 albums; 
+Mercyful Fate: 8 albums; 
+Metallica: 9 albums; 1 songs in root folder.
+Mgła: 6 albums; 
+Misfits: 32 songs in root folder.
+Moonspell: 14 albums; 
+Morbid Angel: 8 albums; 
+Motorhead: 25 albums; 
+Municipal Waste: 4 albums; 
+Murder rape: 4 songs in root folder.
+Nargaroth: 13 albums; 
+Necrophagist: 3 albums; 
+Necropsya: 14 songs in root folder.
+Nevermore: 10 albums; 
+Nile: 7 albums; 
+Norther: 11 albums; 
+Nuclear Assault: 6 albums; 
+Obituary: 10 albums; 
+Obscura: 3 albums; 
+Outros: 2 albums; 8 songs in root folder.
+Ozzy osbourne: 9 albums; 
+Pantera: 6 albums; 
+Paradise Lost: 15 albums; 
+Peste Noire: 2 albums; 
+Pestilence: 10 albums; 
+Plaga: 3 albums; 
+Possessed: 15 albums; 
+Powerwolf: 7 albums; 
+Rammstein: 9 albums; 
+Rotting Christ: 12 albums; 
+Sabaton: 2 albums; 
+Sarcófago: 6 albums; 
+Satanic Warmaster: 11 albums; 
+Satyricon: 8 albums; 
+Saxon: 5 albums; 
+Scorpions: 16 songs in root folder.
+Sepultura: 2 albums; 
+Shaman: 4 albums; 
+Shining: 11 albums; 
+Skyclad: 14 albums; 
+Slayer: 10 albums; 
+Sodom: 14 albums; 
+Stratovarius: 1 album; 
+Suffocation: 8 albums; 
+Summoning: 7 albums; 
+Taake: 5 albums; 
+Talamyus: 1 album; 
+Tankard: 15 albums; 
+Testament: 12 albums; 
+The 69 eyes: 12 albums; 
+The Faceless: 1 album; 
+The Ramones: 20 songs in root folder.
+The Sisters of Mercy: 6 albums; 
+Therion: 18 albums; 
+Thy Light: 3 albums; 
+Tiamat: 9 albums; 
+Tsjuder: 6 albums; 
+Turisas: 3 albums; 
+Type O Negative: 7 albums; 
+TYR: 3 albums; 
+Unleashed: 11 albums; 
+Urgehal: 11 albums; 
+Vader: 15 albums; 
+Vains of jenna: 3 albums; 
+Velho: 4 albums; 
+Venom: 14 albums; 
+Vintersorg: 4 albums; 
+Vision Divine: 1 album; 14 songs in root folder.
+Watain: 7 albums; 
+Whitesnake: 3 albums; 
+Wolf: 3 albums; 
+Wulfgar: 1 album; 
