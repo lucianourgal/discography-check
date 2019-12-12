@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml">\n<head>\n<title>Havok 666 - Encyclopaedia Metallum: The Metal Archives</title>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />\n<link rel="stylesheet" type="text/css" href="/min/index.php?g=css" />\n<script type="0bc93ef8896968834723d937-text/javascript" src="/min/index.php?g=js"></script>\n<script type="0bc93ef8896968834723d937-text/javascript">\r\n\t\t\tvar URL_SITE\t= \'https://www.metal-archives.com/\';\r\n\t\t\tvar URL_IMAGES\t= \'https://www.metal-archives.com/images/\';\r\n\t\t\tvar URL_CSS\t\t= \'https://www.metal-archives.com/css/\';\r\n\t\t\tvar csrfToken\t= \'\';\r\n\r\n\t\t\t$(document).ready(function() {\r\n\t\t\t\ttoggleFixedPositioning(1280, 600);\r\n\t\t\t\texecuteOnAllPages();\r\n\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t});\r\n\r\n\r\n\t\t</script>\n<noscript>\r\n\t\t\t<style type="text/css">\r\n\t\t\t\t.no-js { display: block !important; }\r\n\t\t\t</style>\r\n\t\t</noscript>\n<!--[if lt IE 8]>\r\n\t\t\t<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>\r\n\t\t\t <link rel="stylesheet" type="text/css" href="https://www.metal-archives.com/css/default/oldie.css" />\r\n\t\t<![endif]-->\n<script type="0bc93ef8896968834723d937-text/javascript">\r\n\t\t\t  var _gaq = _gaq || [];\r\n\t\t\t  _gaq.push([\'_setAccount\', \'UA-4046749-4\']);\r\n\t\t\t  _gaq.push([\'_trackPageview\']);\r\n\r\n\t\t\t  (function() {\r\n\t\t\t    var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;\r\n\t\t\t    ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';\r\n\t\t\t    var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);\r\n\t\t\t  })();\r\n\t\t</script>\n</head>\n<body>\n<div id="wrapper">\n<div id="header">\n<a href="https://www.metal-archives.com/" id="MA_logo">Metal Archives</a>\n<div class="clear loading"><img src="https://www.metal-archives.com/images/loading.gif" alt="loading" width="12" height="12" /> loading...</div>\n<div id="search_box">\n<form id="search_form" action="https://www.metal-archives.com/search" method="get">\n<div>\n<label>Search:</label><br />\n<input name="searchString" type="text" id="searchQueryBox" size="25" value="" tabindex="1" />\n<select name="type" tabindex="2">\n<option value="band_name">Band name</option>\n<option value="band_genre">Music genre</option>\n<option value="band_themes">Lyrical themes</option>\n<option value="album_title">Album title</option>\n<option value="song_title">Song title</option>\n<option value="label_name">Label</option>\n<option value="artist_alias">Artist</option>\n<option value="user_name">User profile</option>\n<option value="google">Google</option>\n</select>\n<br />\n<a href="https://www.metal-archives.com/search/advanced/?searchString=&type=" class="float_left" tabindex="4">Advanced search</a>\n<button type="submit" class="btn_submit float_right" tabindex="3">Submit</button>\n</div>\n</form>\n</div>\n<div id="top_menu_box">\n<ul class="menu_style_1">\n<li>
+    <a href="https://www.metal-archives.com/content/help">Help</a></li>\n<li>
+        <a href="https://www.metal-archives.com/content/rules">Rules</a></li>\n
+        <li><a href="https://www.metal-archives.com/board/" target="_top">Forum</a></li>\n<
+            /ul>\n
+            <ul class="menu_style_2">\n<li>
+                <a href="https://www.metal-archives.com/content/faq">FAQ</a></li>\n
+                <li><a href="https://www.metal-archives.com/content/support">Support Us</a></li>\n
+                <li><a href="https://www.metal-archives.com/content/tools">Add-ons</a></li>\n</ul>\n</div>\n</div>\n
+                <div id="left_col">\n<div id="member_box">\n
+                    <form name="login_form" id="login_form" action="https://www.metal-archives.com/authentication/login" method="post">\n<div>\n<label>Username</label><br />\n
+                        <input type="text" name="loginUsername" />\n<label>Password</label><br />\n
+                        <input type="password" name="loginPassword" />\n
+                        <input type="hidden" name="origin" value="/bands/Havok_666/90761" />\n
+                        <button type="submit" class="btn_login float_right">Login</button>\n</div>\n</form>\n
+                        <a href="https://www.metal-archives.com/user/signup" class="float-left writeAction">Register</a>\n
+                        <span class="float_right"><a href="https://www.metal-archives.com/user/forgot-password" class="float-left writeAction">Forgot login?</a> </span>\n
+                        <div class="clear"> </div>\n</div>\n
+                        <div id="left_menu_box">\n<ul class="menu_style_3 block_spacer_20">\n<li>\nBands\n<ul>\n
+                            <li><a href="https://www.metal-archives.com/browse/letter">alphabetical</a></li>\n
+                            <li><a href="https://www.metal-archives.com/browse/country">country</a></li>\n
+                            <li><a href="https://www.metal-archives.com/browse/genre">genre</a></li>\n</ul>\n</li>\n
+                            <li>\nLabels\n<ul>\n<li><a href="https://www.metal-archives.com/label">alphabetical</a></li>\n
+                                <li><a href="https://www.metal-archives.com/label/country">country</a></li>\n</ul>\n</li>\n
+                                <li><a href="https://www.metal-archives.com/review/browse">Reviews</a></li>\n</ul>\n
+                                
+                                <ul class="menu_style_3 block_spacer_20">\n
+                                    <li><a href="https://www.metal-archives.com/artist/rip">R.I.P.</a></li>\n
+                                    <li><a href="https://www.metal-archives.com/band/random">Random Band</a></li>\n
+                                    <li><a href="https://www.metal-archives.com/user/list">User rankings</a></li>\n
+                                    <li><a href="https://www.metal-archives.com/news">News archive</a></li>\n</ul>\n
+                                    <ul class="menu_style_3 ornement_30">\n
+                                        <li><a href="https://www.metal-archives.com/report/list">Reports</a></li>\n
+                                        <li><a href="https://www.metal-archives.com/todo">Contribute / To do</a></li>\n</ul>\n</div>\n
+                                        <div id="left_text_box">\n<p class="small_text center"> &copy; 2002-2019
+                                            <br />Encyclopaedia Metallum </p>\n<p class="small_text center">Best viewed<br /> 
+                                                <a href="http://www.getfirefox.com" target="_blank">without</a> Internet Explorer, 
+                                                <br />in 1280 x 960 resolution<br /> or higher.</p>\n</div>\n
+                                                
+                                                <div>\n<p class="small_text center"><a href="https://www.metal-archives.com/content/pp">Privacy Policy</a></p>\n</div>\n</div>\n
+                                                <div id="content_wrapper">\n
+                                                    <script type="0bc93ef8896968834723d937-text/javascript" 
+                                                    src="https://www.metal-archives.com/js/jquery/jquery.form.js"></script>\n
+                                                    <script type="0bc93ef8896968834723d937-text/javascript">\n\tvar bandId = 90761;\n\tvar bandName = "Havok 666";
+                                                        \n\tvar minRecScore = 3;
+                                                        \n\t\t\n\t\t\n\t\t\n\t$(document).ready(function() {\n\t\t$(\'.tabs, .tabs2lvl\').tabs({ beforeLoad: cacheTab });
+                                                        \n\t\t$(".no-js").removeClass("no-js");
+                                                        \n\t\t\t\t\t\t$(document).on(\'click\', \'.albumMenu\', toggleAlbumMenu);
+                                                        \n\t\t\t\tvar browser = detectBrowser();
+                                                        \n\t\tif(browser.name == "webkit" && parseFloat(browser.version) 
+< 536) {\n\t\t\t$(\'head\').append( $(\'<style type="text/css">.releaseCol { width: 26%; }</style>\'));\n\t\t}\n\t});\n\n</script>\n
+<div id="band_sidebar">\n
+    <div class="band_name_img">\n<a class="image" id="logo" title="Havok 666" href="https://www.metal-archives.com/images/9/0/7/6/90761_logo.jpg?5753">
+        <img src="https://www.metal-archives.com/images/9/0/7/6/90761_logo.jpg?5753"
+         title="Click to zoom" alt="Havok 666 - Logo" border="0" /></a>\n</div>\n
+          <div class="band_img">\n<a class="image" id="photo" title="Havok 666" 
+            href="https://www.metal-archives.com/images/9/0/7/6/90761_photo.jpg?3104">
+            <img src="https://www.metal-archives.com/images/9/0/7/6/90761_photo.jpg?3104" 
+            title="Click to zoom" alt="Havok 666 - Photo" border="0" /></a>\n</div>\n
+            <div id="affiliation-links">\n<span class="title">Buy their stuff</span>\n<br />\n
+                <ul id="buyLinks" class="menu_style_5">\n
+                    <li>\n<a target="_blank" 
+                        href="https://www.metal-archives.com/affiliate/?pid=3&bid=90761">Search on eBay</a>
+                        \nmore... <a href="#more" onclick="if (!window.__cfRLUnblockHandlers) return false; $(\'#sub3\').toggle(); return false;" data-cf-modified-0bc93ef8896968834723d937-="">>></a>
+                        <br />\n<ul id="sub3" style="display: none; margin-top: 0px; margin-bottom: 0px;">\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=17&bid=90761">eBay Canada</a></li>\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=19&bid=90761">eBay UK</a></li>\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=57&bid=90761">eBay Germany</a></li>\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=18&bid=90761">eBay France</a></li>\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=36&bid=90761">eBay Spain</a></li>\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=34&bid=90761">eBay Belgium</a></li>\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=20&bid=90761">eBay Netherlands</a></li>\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=21&bid=90761">eBay Italy</a></li>\n
+                            <li><a target="_blank" href="https://www.metal-archives.com/affiliate/?pid=22&bid=90761">eBay Australia</a></li>\n</ul>\n</li>\n</ul>\n
+                        </div>\n</div>\n<div id="band_content">\n
+                            <div class="tool_strip right writeAction">\n<ul>\n
+                                <li><a title="Report a mistake or additional information for this page" 
+                                    href="javascript:popupReportDialog(1, 90761);" class="btn_report_error"> </a></li>\n</ul>\n</div>\n
+                                    <div id="band_info">\n<h1 class="band_name">
+                                        <a href="https://www.metal-archives.com/bands/Havok_666/90761">Havok 666</a></h1>\n
+                                        <div class="clear block_spacer_5"></div>\n
+                                        <div id="band_stats">\n<dl class="float_left">\n<dt>Country of origin:</dt>\n<dd>
+                                            <a href="https://www.metal-archives.com/lists/BR">Brazil</a></dd>\n
+                                            <dt>Location:</dt>\n<dd>Salto, São Paulo</dd>\n<dt>Status:</dt>\n
+                                            <dd class="active">Active</dd>\n<dt>Formed in:</dt>\n<dd>2004</dd>\n</dl>\n
+                                            <dl class="float_right">\n<dt>Genre:</dt>\n
+                                                <dd>Brutal Death Metal</dd>\n
+                                                <dt>Lyrical themes:</dt>\n<dd>Chaos, Evil, Perdition</dd>\n
+                                                <dt>Current label:</dt>\n<dd>
+                                                    <a href="https://www.metal-archives.com/labels/Lab_6_Music/15670">Lab 6 Music</a></dd>\n
+                                                </dl>\n<dl style="width: 100%;" class="clear">\n
+                                                    <dt>Years active:</dt>\n<dd>
+                                                        \n2004-2014 (as <strong>Havok</strong>),\n2014-present </dd>\n</dl>\n</div>\n
+                                                        <div class="band_comment clear">\n\n
+                                                            Called "Havok 666" since 2014, all songs from previously era was kept.
+                                                            <br />\n<br />\n
+                                                            They have a track in a compilation called "Brazilian Demons Atack - War Compilation #1" released by Demons Legion Rec.
+                                                            <br />\n<br />\n
+                                                            The band also was featured on the OLD METAL MASSACRE - Deströyer Zine Compilation VOL 1 in 2008 with the song "Cursed Intruders Souls".<br />
+                                                            \n<br />\n<b>Compilation Appearances:</b>
+                                                            <br />\n- "Seeds of Hate" on <i>Wrath of Satan II</i> ... \n
+                                                            <div class="tool_strip bottom right">
+                                                                <a href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; readMore(\'band/read-more/id/90761\'); return false;" class="btn_read_more" data-cf-modified-0bc93ef8896968834723d937-="">Read more</a></div>\n
+                                                            </div>\n</div>\n\n<div id="message"> </div>\n
+                                                            <div class="clear block_spacer_5"> </div>\n
+                                                            <div id="band_tabs" class="tabs no-js">\n<ul>\n
+                                                                <li><a href="#band_tab_discography">Discography</a></li>\n
+                                                                <li><a href="#band_tab_members">Members</a></li>\n
+                                                                <li><a href="https://www.metal-archives.com/band/ajax-recommendations/id/90761" title="Similar artists">
+                                                                    <span>Similar Artists</span></a></li>\n
+                                                                    <li><a href="https://www.metal-archives.com/link/ajax-list/type/band/id/90761" 
+                                                                        title="Related links"><span>Related Links</span></a></li>\n</ul>\n
+                                                                        
+                                                                        <div id="band_tab_discography">\n<div id="band_disco" class="tabs2lvl">\n<ul>\n
+                                                                            <li><a href="https://www.metal-archives.com/band/discography/id/90761/tab/all">
+                                                                                <span>Complete discography</span></a></li>\n<li>
+                                                                                    <a href="https://www.metal-archives.com/band/discography/id/90761/tab/main">
+                                                                                        <span>Main</span></a></li>\n<li>
+                                                                                            <a href="https://www.metal-archives.com/band/discography/id/90761/tab/lives">
+                                                                                                <span>Lives</span></a></li>\n
+                                                                                                <li><a href="https://www.metal-archives.com/band/discography/id/90761/tab/demos">
+                                                                                                    <span>Demos</span></a></li>\n
+                                                                                                <li><a href="https://www.metal-archives.com/band/discography/id/90761/tab/misc">
+                                                                                                    <span>Misc.</span></a></li>\n</ul>\n</div>\n</div>\n
+                                                                                                    <div id="band_tab_members">\n
+                                                                                                        <div id="band_members" class="tabs2lvl">\n<ul>\n
+                                                                                                            <li><a href="#band_tab_members_current">Current lineup</a></li>\n</ul>\n\n
+                                                                                                            <div id="band_tab_members_current">\n
+                                                                                                                <div class="ui-tabs-panel-content">\n
+                                                                                                                    <table class="display lineupTable" cellpadding="0" cellspacing="0">\n
+                                                                                                                        <tr class="lineupRow">\n<td width="200" valign="top">\n
+                                                                                                                            <a href="https://www.metal-archives.com/artists/Felipe_Wrecker/190692" 
+                                                                                                                            class="bold">Felipe Wrecker</a>\n</td>\n<td>\nDrums&nbsp;(2004-present) </td>\n</tr>\n
+                                                                                                                            <tr class="lineupRow">\n<td width="200" valign="top">\n
+                                                                                                                                <a href="https://www.metal-archives.com/artists/Andre_Brutaller/190693" 
+                                                                                                                                class="bold">Andre Brutaller</a>\n</td>\n
+                                                                                                                                <td>\nGuitars, Vocals, Bass&nbsp;(2004-present) </td>\n</tr>\n</table>\n
+                                                                                                                            </div>\n</div>\n</div>\n</div>\n</div>\n\n<div id="auditTrail">\n<table>\n<tr>\n<td>Added by:
+                                                                                                                                 <a href="https://www.metal-archives.com/users/canislupus666" class="profileMenu">canislupus666</a></td>\n
+                                                                                                                                 <td align="right">Modified by: <a href="https://www.metal-archives.com/users/wmorb" class="profileMenu">wmorb</a></td>\n</tr>\n<tr>\n
+                                                                                                                                     <td>Added on: 2007-04-12 15:22:54</td>\n<td align="right">Last modified on: 2019-12-01 17:26:32</td>\n</tr>\n
+                                                                                                                                     <tr>\n<td valign="top">\n&nbsp;\n</td>\n<td align="right" valign="top">\n</td>\n</tr>\n</table>\n</div>\n</div>\n
+                                                                                                                                     <div id="readMoreDialog" title="Additional notes" class="displayNone"> </div>\n</div>\n</div>\n
+                                                                                                                                     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" 
+                                                                                                                                     data-cf-settings="0bc93ef8896968834723d937-|49" defer=""></script></body>\n</html>\n'

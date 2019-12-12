@@ -1,9 +1,10 @@
 import { readFolders, MetalFolder, extractMetalBandsFromMetalFolder } from "./readFolders"
 import { MetalBand } from './bandClass';
 import { generateReportOutputs } from './util';
-
+import { metallumDiscographyByBandName } from './metallumRequest';
 
 console.log("CHOCOLATE!!!!")
+//metallumDiscographyByBandName('darkthrone')
 
 // Reads folder location from configs.txt file
 const metalFolderAddress = 'E:\\Music'
@@ -21,4 +22,4 @@ generateReportOutputs(bandObjs);
 
 // Checks which albums are missing for each band
 
-// Generates a .html report
+// Generates a .html report */
