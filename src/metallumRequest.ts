@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const debugMode = false;
+
 interface metallumSearchResult {
     genre: string;
     country: string;
@@ -12,7 +14,12 @@ interface metallumAlbum {
     year: number;
 }
 
-const metallumDiscographyByBandName = async (bandName: string) => {
+interface metallumBandData {
+    searchResult: metallumSearchResult;
+    albums: metallumAlbum[];
+}
+
+const metallumDiscographyByBandName = async (bandName: string): Promise<metallumBandData[]> => {
     const bandOptions: metallumSearchResult[] = await metallumSearchBand(bandName);
     if (!bandOptions || !bandOptions.length) {
         console.log('[Error] Band ' + bandName + ' has no results');
@@ -25,7 +32,15 @@ const metallumDiscographyByBandName = async (bandName: string) => {
     }
     const bandDiscographys: metallumAlbum[][] = await Promise.all(bandUrls.map(bandUrl => metallumGetDiscography(bandUrl)));
 
-    return { bandDiscographys, bandOptions };
+    const response: metallumBandData[] = [];
+    for (let x = 0; x < bandOptions.length; x++) {
+        response.push({
+            searchResult: bandOptions[x],
+            albums: bandDiscographys[x]
+        } as metallumBandData);
+    }
+
+    return response;
 }
 
 
@@ -44,7 +59,7 @@ const metallumSearchBand = async (bandName: string): Promise<metallumSearchResul
                 url: band[0].split('"')[1]
             } as metallumSearchResult));
 
-            console.log(results.map(cur => cur.url + ', ' + cur.genre + ', ' + cur.country).join('\n'));
+            if(debugMode) console.log(results.map(cur => cur.url + ', ' + cur.genre + ', ' + cur.country).join('\n'));
             return results;
         })
         .catch(err => {
@@ -87,7 +102,7 @@ const metallumGetDiscography = async (url: string): Promise<metallumAlbum[]> => 
                 const year = parseInt(tdSplit[3].split('</td')[0]);
                 albums.push({ name, type, year } as metallumAlbum);
             }
-            console.log(albums.map(cur => cur.name + ', ' + cur.type + ', ' + cur.year).join('\n'));
+            if(debugMode) console.log(albums.map(cur => cur.name + ', ' + cur.type + ', ' + cur.year).join('\n'));
 
             return albums;
         })
@@ -100,6 +115,7 @@ const metallumGetDiscography = async (url: string): Promise<metallumAlbum[]> => 
 
 
 export {
-    metallumSearchBand, metallumGetDiscographyUrl, metallumGetDiscography,
-    metallumSearchResult, metallumAlbum, metallumDiscographyByBandName
+    metallumSearchBand, metallumGetDiscographyUrl, metallumGetDiscography, // inner functions
+    metallumSearchResult, metallumAlbum, metallumBandData, // interfaces
+    metallumDiscographyByBandName // main function
 }

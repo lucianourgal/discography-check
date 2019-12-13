@@ -3,11 +3,10 @@ import { MetalBand } from './bandClass';
 import { generateReportOutputs } from './util';
 import { metallumDiscographyByBandName } from './metallumRequest';
 
-console.log("CHOCOLATE!!!!")
 //metallumDiscographyByBandName('darkthrone')
 
 // Reads folder location from configs.txt file
-const metalFolderAddress = 'E:\\Music'
+const metalFolderAddress = 'D:\\METAL'
 
 // Reads all subfolders from selected folder
 const metalFolderObj: MetalFolder = readFolders(metalFolderAddress);
@@ -19,7 +18,11 @@ const bandObjs: MetalBand[] = extractMetalBandsFromMetalFolder(metalFolderObj);
 generateReportOutputs(bandObjs);
 
 // Extracts infos about found bands from metallum
+if (bandObjs) {
+    bandObjs.forEach(band => band.searchMetallumData());
 
-// Checks which albums are missing for each band
+    // Checks which albums are missing for each band
 
-// Generates a .html report */
+    // Generates a .html report 
+
+}

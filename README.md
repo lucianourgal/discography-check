@@ -5,9 +5,8 @@
 - Typescript language<br>
 - Started in late 2019<br>
 
-# Authors
+# Author
 - Luciano Urgal Pando<br>
-- Tiago Stapenhorst Martins<br>
 
 # Expected album folder format
 - In short, album year is allowed at the folder name start between () or [], or before -<br>

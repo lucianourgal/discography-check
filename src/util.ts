@@ -4,6 +4,11 @@ import { flatten } from 'lodash'
 
 export const generateReportOutputs = (bandObjs: MetalBand[]) => {
 
+    if(!bandObjs) {
+        // console.log('[Error] Cant generate report from empty metal band');
+        return null;
+    }
+
     bandObjs = bandObjs.filter(band => band.getIsBand())
     let reportFileName = '';
 
@@ -42,4 +47,11 @@ const metalBandsArrMetadata = (bands: MetalBand[]) => {
 
     return bands.length + ' bands, ' + albuns + ' albums and ' + songs + ' songs found.' +
         '\n\n';
+}
+
+
+export const compStrings = (str1: string, str2: string) => {
+    const str1Norm = str1.toLowerCase().trim();
+    const str2Norm = str2.toLowerCase().trim();
+    return str1Norm === str2Norm;
 }

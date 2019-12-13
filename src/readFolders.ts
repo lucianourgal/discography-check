@@ -3,20 +3,22 @@ import { writeFileSync } from 'fs';
 import { MetalBand } from './bandClass';
 import { flatten } from 'lodash';
 
-export const songsFormats =  ['mp3','wma', 'wav', 'ogg', 'flac', 'm4a', 'aac'];
+export const songsFormats = ['mp3', 'wma', 'wav', 'ogg', 'flac', 'm4a', 'aac'];
 
 export const readFolders = (folder: string): MetalFolder => {
 
     const folderStructureFile = 'outputs/folderStructure.json'
     const filteredTree = dirTree(folder, {
-    extensions: /\.(mp3|wma|MP3|WMA|WAV|wav|OGG|ogg|FLAC|flac|M4A|m4a|AAC|aac)$/
+        extensions: /\.(mp3|wma|MP3|WMA|WAV|wav|OGG|ogg|FLAC|flac|M4A|m4a|AAC|aac)$/
     });
 
-    const jsonString = JSON.stringify(filteredTree)
-    writeFileSync(folderStructureFile, jsonString)
-    console.log(folderStructureFile +' was written to disk!')
-
-    return Convert.toMetalFolder(jsonString);
+    const jsonString = JSON.stringify(filteredTree);
+    if (jsonString) {
+        writeFileSync(folderStructureFile, jsonString)
+        console.log(folderStructureFile + ' was written to disk!')
+        return Convert.toMetalFolder(jsonString);
+    }
+    return null;
 }
 
 export const extractMetalBandsFromMetalFolder = (folder: MetalFolder, genreFoldersBelow: boolean = false): MetalBand[] => {
@@ -26,25 +28,29 @@ export const extractMetalBandsFromMetalFolder = (folder: MetalFolder, genreFolde
         const metalBandFolders: MetalBand[] = flatten(genreFolders.map(genreFolder => genreFolder.children.map(bandFolder => new MetalBand(bandFolder))));
         return metalBandFolders;
     } else {
+        if (!folder) {
+            console.log('[Error] Folder not found! Are you sure this is the right address?')
+            return null;
+        }
         return folder.children.map(bandFolder => new MetalBand(bandFolder));
     }
 
 }
 
 export interface MetalFolder {
-    path?:     string;
-    name?:     string;
+    path?: string;
+    name?: string;
     children?: Child[];
-    size?:     number;
-    type?:     Type;
+    size?: number;
+    type?: Type;
 }
 
 export interface Child {
-    path?:      string;
-    name?:      string;
-    children?:  Child[];
-    size?:      number;
-    type?:      Type;
+    path?: string;
+    name?: string;
+    children?: Child[];
+    size?: number;
+    type?: Type;
     extension?: Extension;
 }
 
