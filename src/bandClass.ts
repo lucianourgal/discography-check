@@ -1,6 +1,7 @@
 import { Child, MetalFolder, songsFormats } from './readFolders';
 import { flatten } from 'lodash';
 import { metallumBandData, metallumDiscographyByBandName, metallumAlbum } from './metallumRequest';
+import { standString } from './util';
 
 export class MetalBand {
 
@@ -12,6 +13,8 @@ export class MetalBand {
     private songsInRootFolder: Child[];
 
     private metallumData: metallumBandData;
+    private albumCheckReport: string;
+    private isDiscographyComplete: boolean;
 
     constructor(bandData: Child) {
         this.name = bandData.name;
@@ -50,16 +53,16 @@ export class MetalBand {
         const possibleMetallumData: metallumBandData[] = await metallumDiscographyByBandName(this.name);
 
         if (!possibleMetallumData) {
-            return '[Error] Nothing was found related to band '+ this.name + '.';
+            return '[Error] Nothing was found related to band <<' + this.name + '>>.';
         }
 
         let closestMatch: metallumBandData;
         let closestMatchCount = 0;
-        const folderAlbumNames = this.getBandAlbumList().albumNames.map(s => s.toLowerCase());
+        const folderAlbumNames = this.getBandAlbumList().albumNames.map(s => standString(s));
 
         for (let x = 0; x < possibleMetallumData.length; x++) { // check bands possibilities 
             let count = 0;
-            const mAlb = possibleMetallumData[x].albums && possibleMetallumData[x].albums.map(album => album.name.toLowerCase());
+            const mAlb = possibleMetallumData[x].albums && possibleMetallumData[x].albums.map(album => standString(album.name));
             if (mAlb)
                 for (let a = 0; a < mAlb.length; a++) { // metallum album by metallum album
                     if (folderAlbumNames.includes(mAlb[a])) {
@@ -100,7 +103,22 @@ export class MetalBand {
             }
         }
 
+        this.albumCheckReport = '[' + this.name + '] Missing albums: ' + missing.length + '\n' +
+            (missing.length ?
+                'Missing names: ' + missing.map(ma => ma.name + '(' + ma.year + ')').join(', ') + '\n' +
+                'Available options: ' + this.getBandAlbumList().albumNames.join(', ') + '\n' : '');
+
+        this.isDiscographyComplete = missing.length === 0;
+
         return missing;
+    }
+
+    public getIsDiscographyComplete() {
+        return this.isDiscographyComplete;
+    }
+
+    public getAlbumCheckReport() {
+        return this.albumCheckReport ? this.albumCheckReport : '[' + this.name + '] There is no album check report\n';
     }
 
     public getIsBand() {

@@ -22,8 +22,11 @@ generateReportOutputs(bandObjs);
 
     if (bandObjs) {
 
-        let missingAlbunsReport = 'Band;Album;Year;\n';
+        let missingAlbunsCsv = 'Band;Album;Year;\n';
+        let albumSearchReport = '';
         let textReport = '';
+
+        let failCount = 0;
 
         for (let x = 0; x < bandObjs.length; x++) {
 
@@ -36,16 +39,27 @@ generateReportOutputs(bandObjs);
             // Checks which albums are missing for each band
             const missingAlbums = cur.getMissingAlbums();
             if (missingAlbums && missingAlbums.length) {
-                missingAlbunsReport += missingAlbums.map(ma => cur.getName() + ';' + ma.name + ';' + ma.year).join('\n') + '\n';
+                missingAlbunsCsv += missingAlbums.map(ma => cur.getName() + ';' + ma.name + ';' + ma.year).join('\n') + '\n';
+            } else {
+                failCount++;
             }
+
+            albumSearchReport += cur.getAlbumCheckReport() + '\n';
 
             // avoid overcharging metallum
             await sleep(200);
         }
 
+        const completeBands = bandObjs.filter(band => band.getIsDiscographyComplete());
+
+
+        const textRepStart = 'Found discographys about ' + (bandObjs.length-failCount) + ' / ' + bandObjs.length + ' bands\n' +
+        completeBands.length + ' bands have their discographys complete. \n\n';
         // Generates report files
-        writeFileSync('outputs/Missing_albums.csv', missingAlbunsReport);
-        writeFileSync('outputs/Album_search_report.txt', textReport);
+        writeFileSync('outputs/Missing_albums.csv', missingAlbunsCsv);
+        writeFileSync('outputs/Album_search_report.txt', textRepStart + textReport);
+        writeFileSync('outputs/Album check report.txt', albumSearchReport);
+
     }
 
 })();

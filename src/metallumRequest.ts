@@ -22,12 +22,12 @@ interface metallumBandData {
 const metallumDiscographyByBandName = async (bandName: string): Promise<metallumBandData[]> => {
     const bandOptions: metallumSearchResult[] = await metallumSearchBand(bandName);
     if (!bandOptions || !bandOptions.length) {
-        console.log('[Error] Band ' + bandName + ' has no results');
+        console.log('[Error] Band <<' + bandName + '>> has no results');
         return null;
     }
     const bandUrls: string[] = await Promise.all(bandOptions.map(bandOpt => metallumGetDiscographyUrl(bandOpt.url)));
     if (!bandUrls || !bandUrls.length) {
-        console.log('[Error] Band ' + bandName + ' has no url results');
+        console.log('[Error] Band <<' + bandName + '>> has no url results');
         return null;
     }
     const bandDiscographys: metallumAlbum[][] = await Promise.all(bandUrls.map(bandUrl => metallumGetDiscography(bandUrl, bandName)));

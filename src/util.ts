@@ -1,6 +1,7 @@
 import { MetalBand } from './bandClass';
 import { writeFileSync } from 'fs';
 import { flatten } from 'lodash'
+import { accentFold } from '@stefancfuchs/utils'
 
 export const generateReportOutputs = (bandObjs: MetalBand[]) => {
 
@@ -50,10 +51,10 @@ const metalBandsArrMetadata = (bands: MetalBand[]) => {
 }
 
 
-export const compStrings = (str1: string, str2: string) => {
-    const str1Norm = str1.toLowerCase().trim();
-    const str2Norm = str2.toLowerCase().trim();
-    return str1Norm === str2Norm;
+export const standString = (str1: string) => {
+    let norm = str1.toLowerCase().trim();
+    norm = norm.replace('.','').replace(',','');
+    return accentFold(norm);
 }
 
 export const sleep = (ms: number) => {
