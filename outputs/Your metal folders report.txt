@@ -1,4 +1,4 @@
-169 bands, 1137 albums and 11621 songs found.
+171 bands, 1162 albums and 11886 songs found.
 
 Acid Witch: 5 albums; 
 Agalloch: 9 albums; 
@@ -14,6 +14,7 @@ Anthrax: 14 songs in root folder.
 Arch Enemy: 9 albums; 
 Arkan: 3 albums; 
 Asphyx: 8 albums; 
+At The Gates: 12 albums; 
 Atheist: 4 albums; 
 Bathory: 12 albums; 
 Batushka: 2 albums; 
@@ -23,7 +24,7 @@ Beyond Creation: 2 albums;
 Black Sabbath: 19 albums; 
 Bloodbath: 6 albums; 
 Bolt Thrower: 10 albums; 
-Borknagar: 11 albums; 
+Borknagar: 12 albums; 
 Burzum: 10 albums; 
 Caladan Brood: 1 album; 
 Candlemass: 3 albums; 
@@ -41,6 +42,7 @@ Crom: 1 album;
 Cryptopsy: 7 albums; 
 Danzig: 22 songs in root folder.
 Dark Forest: 3 albums; 
+Dark Fortress: 12 albums; 
 Dark Moor: 2 albums; 
 Dark Tranquillity: 2 albums; 
 Darkthrone: 18 albums; 
@@ -98,7 +100,7 @@ Matanza: 5 albums;
 Megadeth: 18 albums; 
 Mercyful Fate: 8 albums; 
 Metallica: 9 albums; 1 songs in root folder.
-Mgła: 6 albums; 
+Mgla: 6 albums; 
 Misfits: 32 songs in root folder.
 Moonsorrow: 8 albums; 
 Moonspell: 14 albums; 

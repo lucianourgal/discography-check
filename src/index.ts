@@ -1,10 +1,9 @@
 import { readFolders, MetalFolder, extractMetalBandsFromMetalFolder } from "./readFolders"
 import { MetalBand } from './bandClass';
 import { generateReportOutputs, sleep } from './util';
-import { metallumDiscographyByBandName } from './metallumRequest';
 import { writeFileSync } from 'fs';
 
-//metallumDiscographyByBandName('darkthrone')
+//metallumDiscographyByBandName('darkthrone') // search band example
 
 // Reads folder location from configs.txt file
 const metalFolderAddress = 'E:\\Music'

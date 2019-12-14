@@ -238,16 +238,21 @@ class MetalAlbum {
             let error = '';
             const splitStart = str.split(annStart);
             if (splitStart.length !== 2) {
-                this.error = 'Alert: "' + str + '" has too much "' + annStart + '"  (' + this.bandName + ') returning "' + splitStart[0] + '"\n'
-                console.log(this.error);
-                return splitStart[0];
+
+                const newStr = str.replace(annEnd, annStart);
+                const split = newStr.split(annStart);
+                let response = '';
+                for(let i=0;i<split.length;i=i+2){
+                    response += split[i];
+                }                
+
+                response = this.filterAlbumName(response.trim());
+                /*this.error = 'Alert: "' + str + '" has too much "' + annStart + '"  (' + this.bandName + ') returning "' + response + '"\n'
+                console.log(this.error);*/
+                return response;
             }
             const splitEnd = splitStart[1].split(annEnd);
-            if (splitEnd.length !== 2) {
-                this.error = error + 'Alert: "' + str + '" has too much "' + annEnd + '" (' + this.bandName + ')\n'
-                console.log(this.error);
-                return str;
-            }
+
             return splitStart[0] + splitEnd[1];
         } else {
             return str;
