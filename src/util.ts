@@ -55,3 +55,7 @@ export const compStrings = (str1: string, str2: string) => {
     const str2Norm = str2.toLowerCase().trim();
     return str1Norm === str2Norm;
 }
+
+export const sleep = (ms: number) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }

@@ -30,7 +30,7 @@ const metallumDiscographyByBandName = async (bandName: string): Promise<metallum
         console.log('[Error] Band ' + bandName + ' has no url results');
         return null;
     }
-    const bandDiscographys: metallumAlbum[][] = await Promise.all(bandUrls.map(bandUrl => metallumGetDiscography(bandUrl)));
+    const bandDiscographys: metallumAlbum[][] = await Promise.all(bandUrls.map(bandUrl => metallumGetDiscography(bandUrl, bandName)));
 
     const response: metallumBandData[] = [];
     for (let x = 0; x < bandOptions.length; x++) {
@@ -59,7 +59,7 @@ const metallumSearchBand = async (bandName: string): Promise<metallumSearchResul
                 url: band[0].split('"')[1]
             } as metallumSearchResult));
 
-            if(debugMode) console.log(results.map(cur => cur.url + ', ' + cur.genre + ', ' + cur.country).join('\n'));
+            if (debugMode) console.log(results.map(cur => cur.url + ', ' + cur.genre + ', ' + cur.country).join('\n'));
             return results;
         })
         .catch(err => {
@@ -84,30 +84,40 @@ const metallumGetDiscographyUrl = async (url: string): Promise<string> => {
 
 }
 
-const metallumGetDiscography = async (url: string): Promise<metallumAlbum[]> => {
+const metallumGetDiscography = async (url: string, bandName?: string): Promise<metallumAlbum[]> => {
 
     const albums: metallumAlbum[] = [];
 
     return await axios.get(url)
         .then(res => {
             const str = String(res.data);
-            const trSplit = str.split('<tbody>')[1].split('<tr>');
+            if (str) {
+                const trSplit = str.split('<tbody>')[1].split('<tr>');
 
 
-            for (let x = 1; x < trSplit.length; x++) {
-                const tdSplit = trSplit[x].split('<td>');
+                for (let x = 1; x < trSplit.length; x++) {
+                    if (trSplit[x]) {
+                        const tdSplit = trSplit[x].split('<td>');
 
-                const name = tdSplit[1].split('">')[1].split('</a>')[0];
-                const type = tdSplit[2].split('</td')[0];
-                const year = parseInt(tdSplit[3].split('</td')[0]);
-                albums.push({ name, type, year } as metallumAlbum);
+                        if (tdSplit[1] && tdSplit[2] && tdSplit[3]) {
+                            const name = tdSplit[1].split('">')[1].split('</a>')[0];
+                            const type = tdSplit[2].split('</td')[0];
+                            const year = parseInt(tdSplit[3].split('</td')[0]);
+                            albums.push({ name, type, year } as metallumAlbum);
+                        }
+                    }
+                }
+                if (debugMode) console.log(albums.map(cur => cur.name + ', ' + cur.type + ', ' + cur.year).join('\n'));
+
+                return albums;
             }
-            if(debugMode) console.log(albums.map(cur => cur.name + ', ' + cur.type + ', ' + cur.year).join('\n'));
-
-            return albums;
+            console.log('[Error] Failed to retrieve metallum discography - ' + url + (
+                bandName ? ' (' + bandName + ')' : '') + ' res.data is null');
+            return null;
         })
         .catch(err => {
-            console.log('Failed to retrieve metallum discography - ' + url);
+            console.log('[Error] Failed to retrieve metallum discography - ' + url + (
+                bandName ? ' (' + bandName + ')' : '') + err.message);
             return null;
         })
 

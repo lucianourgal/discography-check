@@ -1,6 +1,6 @@
 import { Child, MetalFolder, songsFormats } from './readFolders';
 import { flatten } from 'lodash';
-import { metallumBandData, metallumDiscographyByBandName } from './metallumRequest';
+import { metallumBandData, metallumDiscographyByBandName, metallumAlbum } from './metallumRequest';
 
 export class MetalBand {
 
@@ -48,33 +48,59 @@ export class MetalBand {
     public async searchMetallumData() {
 
         const possibleMetallumData: metallumBandData[] = await metallumDiscographyByBandName(this.name);
-          
-        if(!possibleMetallumData) {
-            console.log('[Error] Nothing was found related to band '+ this.name + '.');
-            return;
-        } 
+
+        if (!possibleMetallumData) {
+            return '[Error] Nothing was found related to band '+ this.name + '.';
+        }
 
         let closestMatch: metallumBandData;
         let closestMatchCount = 0;
-        const folderAlbumNames = this.getBandAlbumList().albumNames;
+        const folderAlbumNames = this.getBandAlbumList().albumNames.map(s => s.toLowerCase());
 
-        for(let x=0;x<possibleMetallumData.length;x++) { // check bands possibilities 
+        for (let x = 0; x < possibleMetallumData.length; x++) { // check bands possibilities 
             let count = 0;
-            const mAlb = possibleMetallumData[x].albums && possibleMetallumData[x].albums.map(album => album.name);
-            for(let a=0;a<mAlb.length;a++) { // metallum album by metallum album
-                if(folderAlbumNames.includes(mAlb[a])) {
-                    count++;
+            const mAlb = possibleMetallumData[x].albums && possibleMetallumData[x].albums.map(album => album.name.toLowerCase());
+            if (mAlb)
+                for (let a = 0; a < mAlb.length; a++) { // metallum album by metallum album
+                    if (folderAlbumNames.includes(mAlb[a])) {
+                        count++;
+                    }
                 }
-            }
             // check if this is the closest match
-            if(count > closestMatchCount) {
+            if (count > closestMatchCount) {
                 closestMatchCount = count;
                 closestMatch = possibleMetallumData[x];
             }
         }
 
-        if(closestMatch) console.log('[Ok] Band ' + this.name + ' has a match! ' + closestMatchCount + ' album matchs.')
-        this.metallumData = closestMatch;
+        if (closestMatch) {
+            const report = '[Ok] Band <<' + this.name + '>> has a match! ' + closestMatchCount + ' album matchs. ' +
+                '(metallum ' + closestMatch.albums.length + ', HD ' + this.getAlbunsCount() + ')';
+            console.log(report);
+            this.metallumData = closestMatch;
+            return report;
+        }
+        return null;
+    }
+
+    public getMissingAlbums() {
+
+        if (!this.metallumData) return null;
+        const mAlbums = this.metallumData.albums;
+        if (!mAlbums) return null;
+
+        const hdAlbums = this.getBandAlbumList().albumNames.map(cur => cur.toLowerCase());
+
+        const missing: metallumAlbum[] = [];
+
+        for (let a = 0; a < mAlbums.length; a++) {
+            const name = mAlbums[a].name.toLowerCase();
+            if (!hdAlbums.includes(name)) {
+                missing.push(mAlbums[a]);
+            }
+        }
+
+        return missing;
     }
 
     public getIsBand() {

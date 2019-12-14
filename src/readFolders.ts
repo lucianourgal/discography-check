@@ -14,7 +14,7 @@ export const readFolders = (folder: string): MetalFolder => {
 
     const jsonString = JSON.stringify(filteredTree);
     if (jsonString) {
-        writeFileSync(folderStructureFile, jsonString)
+        writeFileSync(folderStructureFile, jsonString);
         console.log(folderStructureFile + ' was written to disk!')
         return Convert.toMetalFolder(jsonString);
     }
