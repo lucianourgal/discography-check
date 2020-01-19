@@ -91,20 +91,24 @@ export class MetalBand {
         if (!this.metallumData) return null;
         const mAlbums = this.metallumData.albums;
         if (!mAlbums) return null;
+        //const debug = this.getName() === 'Band you want to debug'
 
-        const hdAlbums = this.getBandAlbumList().albumNames.map(cur => cur.toLowerCase());
+        const hdAlbums = this.getBandAlbumList().albumNames.map(cur => standString(cur));
+        //if(debug) console.log(this.getName() + ' hdAlbuns = ' + hdAlbums.join('; '));
 
         const missing: metallumAlbum[] = [];
 
         for (let a = 0; a < mAlbums.length; a++) {
-            const name = mAlbums[a].name.toLowerCase();
+            const name = standString(mAlbums[a].name);
+            //if(debug) console.log('looking for >'+ name + '< album');
             if (!hdAlbums.includes(name)) {
                 mAlbums[a].band = this.getName();
                 missing.push(mAlbums[a]);
+                //if(debug) console.log('>' + name + '< album not found!')
             }
         }
 
-        this.albumCheckReport = '[' + this.name + '] Missing albums: ' + missing.length + '\n' +
+        this.albumCheckReport = '[' + this.name + '] Missing albums: ' + missing.length + ' / ' + mAlbums.length + '\n' +
             (missing.length ?
                 'Missing names: ' + missing.map(ma => ma.name + '(' + ma.year + ')').join(', ') + '\n' +
                 'Available options: ' + this.getBandAlbumList().albumNames.join(', ') + '\n' : '');
@@ -246,9 +250,9 @@ class MetalAlbum {
                 const newStr = str.replace(annEnd, annStart);
                 const split = newStr.split(annStart);
                 let response = '';
-                for(let i=0;i<split.length;i=i+2){
+                for (let i = 0; i < split.length; i = i + 2) {
                     response += split[i];
-                }                
+                }
 
                 response = this.filterAlbumName(response.trim());
                 /*this.error = 'Alert: "' + str + '" has too much "' + annStart + '"  (' + this.bandName + ') returning "' + response + '"\n'

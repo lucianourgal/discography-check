@@ -53,9 +53,10 @@ const metalBandsArrMetadata = (bands: MetalBand[]) => {
 
 
 export const standString = (str1: string) => {
-    let norm = str1.toLowerCase().trim();
-    norm = norm.replace('.','').replace(',','');
-    return accentFold(norm);
+    let norm = str1.toLowerCase();
+    norm = replaceAll_Arr(norm, ['.',',', '?', "!", ":", "'", '/', '-', '–'], '');
+    norm = replaceAll(norm, '  ', ' ');
+    return accentFold(norm).trim();
 }
 
 export const sleep = (ms: number) => {
@@ -64,4 +65,22 @@ export const sleep = (ms: number) => {
 
 export const missingAlbumLine = (ma: metallumAlbum) => {
     return ma.band + ';' + ma.name + ';' + ma.year + ';' + ma.reviewCount + ';' + ma.reviewsAverage
+}
+
+export const replaceAll_Arr = (str: string, toBeReplaced: string[], toBePut: string) => {
+    let s = str;
+    for(let x=0;x<toBeReplaced.length;x++) {
+        s = replaceAll(s, toBeReplaced[x], toBePut);
+    }
+    return s;
+}
+
+export const replaceAll = (str: string, toBeReplaced: string, toBePut: string) => {
+    let s = str;
+    let keepReplacing = str.includes(toBeReplaced);
+    while(keepReplacing) {
+        s = s.replace(toBeReplaced, toBePut);
+        keepReplacing = s.includes(toBeReplaced);
+    }
+    return s;
 }
