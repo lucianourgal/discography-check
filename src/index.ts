@@ -1,6 +1,6 @@
 import { readFolders, MetalFolder, extractMetalBandsFromMetalFolder } from "./readFolders"
 import { MetalBand } from './bandClass';
-import { generateReportOutputs, sleep } from './util';
+import { generateReportOutputs, sleep, missingAlbumLine } from './util';
 import { writeFileSync } from 'fs';
 import { metallumAlbum } from './metallumRequest';
 
@@ -23,7 +23,7 @@ generateReportOutputs(bandObjs);
 
     if (bandObjs) {
 
-        let missingAlbunsCsv = 'Band;Album;Year;\n';
+        let missingAlbunsCsv = 'Band;Album;Year;Reviews Count;Reviews Average\n';
         let allMissingAlbums: metallumAlbum[] = [];
         let albumSearchReport = '';
         let textReport = '';
@@ -53,7 +53,7 @@ generateReportOutputs(bandObjs);
         }
 
         allMissingAlbums = allMissingAlbums.sort((a, b) => b.year - a.year);
-        missingAlbunsCsv += allMissingAlbums.map(ma => ma.band + ';' + ma.name + ';' + ma.year).join('\n');
+        missingAlbunsCsv += allMissingAlbums.map(ma => missingAlbumLine(ma)).join('\n');
 
         const completeBands = bandObjs.filter(band => band.getIsDiscographyComplete());
         const notFoundBands = bandObjs.filter(band => !band.isBandFoundAtMetallum());

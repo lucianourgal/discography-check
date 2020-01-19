@@ -2,6 +2,7 @@ import { MetalBand } from './bandClass';
 import { writeFileSync } from 'fs';
 import { flatten } from 'lodash'
 import { accentFold } from '@stefancfuchs/utils'
+import { metallumAlbum } from './metallumRequest';
 
 export const generateReportOutputs = (bandObjs: MetalBand[]) => {
 
@@ -60,3 +61,7 @@ export const standString = (str1: string) => {
 export const sleep = (ms: number) => {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
+export const missingAlbumLine = (ma: metallumAlbum) => {
+    return ma.band + ';' + ma.name + ';' + ma.year + ';' + ma.reviewCount + ';' + ma.reviewsAverage
+}

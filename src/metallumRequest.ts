@@ -12,6 +12,9 @@ interface metallumAlbum {
     name: string;
     type: string;
     year: number;
+
+    reviewCount?: string;
+    reviewsAverage?: string;
     band?: string;
 }
 
@@ -105,7 +108,19 @@ const metallumGetDiscography = async (url: string, bandName?: string): Promise<m
                             const name = tdSplit[1].split('">')[1].split('</a>')[0];
                             const type = tdSplit[2].split('</td')[0];
                             const year = parseInt(tdSplit[3].split('</td')[0]);
-                            albums.push({ name, type, year } as metallumAlbum);
+
+                            const r = tdSplit[4].split('</td')[0].split('">');
+                            let reviews = '';
+                            let reviewCount = '';
+                            let reviewsAverage = '';
+
+                            if(r.length > 1) {
+                                reviews = r[1].split('</a>')[0];
+
+                                reviewCount = reviews.split('(')[0].trim();
+                                reviewsAverage = reviews.split('(')[1].split('%')[0];
+                            }
+                            albums.push({ name, type, year, reviews, reviewCount, reviewsAverage } as metallumAlbum);
                         }
                     }
                 }
