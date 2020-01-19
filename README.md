@@ -10,7 +10,6 @@
 
 # Expected album folder format
 - In short, album year is allowed at the folder name start between () or [], or before -<br>
-- Multiple (), [] or - aren't allowed and will cause errors <br>
 
 # Expected album folder names examples
 - "2016 - Atoma"<br>
@@ -21,9 +20,16 @@
 - "2017 - Dance And Laugh Amongst The Rotten (Deluxe Digibox)"<br>
 
 # Unexpected album folder names examples
-- "2016 Atoma"
+- "2016 Atoma"<br>
 - "Dance And Laugh Amongst The Rotten (Deluxe Digibox) - 2017"<br>
-- "(2009) World Painted Blood (320)"<br>
+
+
+# Usage
+- Clone this repository <br>
+- Change "metalFolderAddress" variable value at index.ts<br>
+- Run "npm install"<br>
+- Run "npm start"<br>
+- Check reports at outputs folder<br>
 
 # Usefull links
 - https://www.npmjs.com/package/directory-tree <br>

@@ -99,6 +99,7 @@ export class MetalBand {
         for (let a = 0; a < mAlbums.length; a++) {
             const name = mAlbums[a].name.toLowerCase();
             if (!hdAlbums.includes(name)) {
+                mAlbums[a].band = this.getName();
                 missing.push(mAlbums[a]);
             }
         }
@@ -141,6 +142,10 @@ export class MetalBand {
 
     public songsInRootFolderCount() {
         return this.songsInRootFolder.length;
+    }
+
+    public isBandFoundAtMetallum() {
+        return !!this.metallumData;
     }
 
     public getReport() {
@@ -231,7 +236,6 @@ class MetalAlbum {
 
         return filtered.replace('_', ' ').trim();
     }
-
 
     private removeAnnotation(str: string, annStart: string, annEnd: string) {
         if (str.includes(annStart) && str.includes(annEnd)) {

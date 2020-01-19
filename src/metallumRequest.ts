@@ -12,6 +12,7 @@ interface metallumAlbum {
     name: string;
     type: string;
     year: number;
+    band?: string;
 }
 
 interface metallumBandData {
@@ -25,7 +26,7 @@ const metallumDiscographyByBandName = async (bandName: string): Promise<metallum
         console.log('[Error] Band <<' + bandName + '>> has no results');
         return null;
     }
-    const bandUrls: string[] = await Promise.all(bandOptions.map(bandOpt => metallumGetDiscographyUrl(bandOpt.url)));
+    const bandUrls: string[] = await Promise.all(bandOptions.map(bandOpt => metallumGetDiscographyUrl(bandOpt.url, bandName)));
     if (!bandUrls || !bandUrls.length) {
         console.log('[Error] Band <<' + bandName + '>> has no url results');
         return null;
@@ -68,7 +69,7 @@ const metallumSearchBand = async (bandName: string): Promise<metallumSearchResul
         })
 }
 
-const metallumGetDiscographyUrl = async (url: string): Promise<string> => {
+const metallumGetDiscographyUrl = async (url: string, bandName: string): Promise<string> => {
 
     return await axios.get(url)
         .then(res => {
@@ -78,7 +79,7 @@ const metallumGetDiscographyUrl = async (url: string): Promise<string> => {
             return urlFound;
         })
         .catch(err => {
-            console.log('[Error] Failed to retrieve metallum discography url - ' + url);
+            //console.log('[Error] Failed to retrieve metallum discography of "' + bandName + '" url - ' + url);
             return null;
         })
 
@@ -87,6 +88,7 @@ const metallumGetDiscographyUrl = async (url: string): Promise<string> => {
 const metallumGetDiscography = async (url: string, bandName?: string): Promise<metallumAlbum[]> => {
 
     const albums: metallumAlbum[] = [];
+    if (!url) return null;
 
     return await axios.get(url)
         .then(res => {
