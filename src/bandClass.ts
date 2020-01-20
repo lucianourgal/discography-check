@@ -1,7 +1,7 @@
 import { Child, MetalFolder, songsFormats } from './readFolders';
 import { flatten } from 'lodash';
 import { metallumBandData, metallumDiscographyByBandName, metallumAlbum } from './metallumRequest';
-import { standString } from './util';
+import { standString, replaceAll } from './util';
 
 export class MetalBand {
 
@@ -14,6 +14,7 @@ export class MetalBand {
 
     private metallumData: metallumBandData;
     private albumCheckReport: string;
+    private albumCheckReportCsv: string;
     private isDiscographyComplete: boolean;
 
     constructor(bandData: Child) {
@@ -108,10 +109,19 @@ export class MetalBand {
             }
         }
 
-        this.albumCheckReport = '[' + this.name + '] Missing albums: ' + missing.length + ' / ' + mAlbums.length + '\n' +
+        const missingAlbumsString = missing.map(ma => ma.name + '(' + ma.year + ')').join(', ');
+        const optionsString = this.getBandAlbumList().albumNames.join(', ')
+        const completionRate =  ((1-(missing.length / mAlbums.length))*100).toFixed(0);
+
+        this.albumCheckReport = '[' + this.name + '] Missing albums: ' + missing.length + ' / ' + mAlbums.length + ' ('+completionRate+'%)\n' +
             (missing.length ?
-                'Missing names: ' + missing.map(ma => ma.name + '(' + ma.year + ')').join(', ') + '\n' +
-                'Available options: ' + this.getBandAlbumList().albumNames.join(', ') + '\n' : '');
+                'Missing names: ' + missingAlbumsString + '\n' +
+                'Available options: ' + optionsString + '\n' : '');
+
+        // Band; Missing Count; Metallum Count; HD albuns count; Completion rate; Missing albums; HD album options
+        this.albumCheckReportCsv = this.name + '; ' + missing.length + '; ' + mAlbums.length + "; " + this.getAlbunsCount() + '; ' +
+        + completionRate + '; ' + missingAlbumsString + '; ' + optionsString;
+        
 
         this.isDiscographyComplete = missing.length === 0;
 
@@ -124,6 +134,10 @@ export class MetalBand {
 
     public getAlbumCheckReport() {
         return this.albumCheckReport ? this.albumCheckReport : '[' + this.name + '] There is no album check report\n';
+    }
+
+    public getAlbumCheckReportCsv() {
+        return this.albumCheckReportCsv ? replaceAll(this.albumCheckReportCsv, '"', '') : null;
     }
 
     public getIsBand() {
@@ -235,7 +249,9 @@ class MetalAlbum {
         filtered = this.removeAnnotation(filtered, '[', ']');
         // Ignores anything before - symbol 
         if (filtered.includes('-') && filtered.split('-')[0].length > 2) {
-            filtered = filtered.split('-')[1];
+            const split = filtered.split('-');
+            split[0] = '';
+            filtered = split.join(' ').trim();
         }
 
         return filtered.replace('_', ' ').trim();
@@ -247,7 +263,7 @@ class MetalAlbum {
             const splitStart = str.split(annStart);
             if (splitStart.length !== 2) {
 
-                const newStr = str.replace(annEnd, annStart);
+                const newStr = replaceAll(str, annEnd, annStart);
                 const split = newStr.split(annStart);
                 let response = '';
                 for (let i = 0; i < split.length; i = i + 2) {

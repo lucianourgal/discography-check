@@ -26,6 +26,7 @@ generateReportOutputs(bandObjs);
         let missingAlbunsCsv = 'Band;Album;Year;Reviews Count;Reviews Average\n';
         let allMissingAlbums: metallumAlbum[] = [];
         let albumSearchReport = '';
+        let albumSearchReportCsv = 'Band; Missing Count; Metallum Count; HD albuns count; Completion rate; Missing albums; HD album options';
         let textReport = '';
 
         let failCount = 0;
@@ -47,6 +48,10 @@ generateReportOutputs(bandObjs);
             }
 
             albumSearchReport += cur.getAlbumCheckReport() + '\n';
+            const csvReport = cur.getAlbumCheckReportCsv();
+            if(csvReport) {
+                albumSearchReportCsv += '\n' + csvReport;
+            }
 
             // avoid overcharging metallum
             await sleep(200);
@@ -67,6 +72,7 @@ generateReportOutputs(bandObjs);
         writeFileSync('outputs/Missing_albums.csv', missingAlbunsCsv);
         writeFileSync('outputs/Album_search_report.txt', textRepStart + textReport);
         writeFileSync('outputs/Album check report.txt', albumSearchReport);
+        writeFileSync('outputs/Album check report.csv', albumSearchReportCsv);
         writeFileSync('outputs/Not found bands.txt', notFoundBandsString);
 
         console.log('\n' + textRepStart);

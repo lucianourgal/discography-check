@@ -54,7 +54,7 @@ const metalBandsArrMetadata = (bands: MetalBand[]) => {
 
 export const standString = (str1: string) => {
     let norm = str1.toLowerCase();
-    norm = replaceAll_Arr(norm, ['.',',', '?', "!", ":", "'", '/', '-', '–'], '');
+    norm = replaceAll_Arr(norm, ['.',',', '?', "!", ":", "'", '/', '-', '–', '"'], '');
     norm = replaceAll(norm, '  ', ' ');
     return accentFold(norm).trim();
 }

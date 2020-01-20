@@ -1,6 +1,6 @@
-174 bands, 1190 albums and 12163 songs found.
+176 bands, 1189 albums and 12170 songs found.
 
-Acid Witch: 5 albums; 
+Acid Witch: 6 albums; 
 Agalloch: 9 albums; 
 Airbourne: 2 albums; 
 Alcest: 3 albums; 
@@ -18,11 +18,11 @@ At The Gates: 12 albums;
 Atheist: 4 albums; 
 Bathory: 12 albums; 
 Batushka: 2 albums; 
-Beherit: 16 albums; 
+Beherit: 12 albums; 
 Benediction: 9 albums; 
 Beyond Creation: 3 albums; 
 Black Sabbath: 19 albums; 
-Bloodbath: 6 albums; 
+Bloodbath: 5 albums; 
 Bolt Thrower: 10 albums; 
 Borknagar: 12 albums; 
 Burzum: 10 albums; 
@@ -57,7 +57,7 @@ Dvd do fabio: 3 albums;
 Dying Fetus: 8 albums; 
 Electric Wizard: 7 albums; 
 Eluveitie: 6 albums; 
-Enisum: 2 albums; 
+Enisum: 3 albums; 
 Enthroned: 11 albums; 
 Equilibrium: 5 albums; 
 Estatic Fear: 1 album; 2 songs in root folder.
@@ -70,6 +70,7 @@ Folkodia: 2 albums;
 Foo Fighters: 16 songs in root folder.
 Frigoris: 1 album; 
 Ghost: 2 albums; 
+Gormathon: Nothing found.
 Grave Digger: 18 albums; 
 Hammerfall: 9 albums; 
 Hardcore Superstar: 4 albums; 
@@ -97,10 +98,10 @@ Lordi: 5 albums;
 Manowar best: 14 songs in root folder.
 Marduk: 30 albums; 
 Matanza: 5 albums; 
-Megadeth: 18 albums; 
+Megadeth: 19 albums; 
 Mercyful Fate: 8 albums; 
 Metallica: 9 albums; 1 songs in root folder.
-Mgla: 6 albums; 
+Mgla: 7 albums; 
 Misfits: 32 songs in root folder.
 Moonsorrow: 8 albums; 
 Moonspell: 14 albums; 
@@ -128,7 +129,7 @@ Possessed: 15 albums;
 Powerwolf: 9 albums; 
 Primordial: 7 albums; 
 Psychonaut 4: 4 albums; 
-Rammstein: 9 albums; 
+Rammstein: 7 albums; 
 Rotting Christ: 12 albums; 
 Sabaton: 2 albums; 
 Sarcófago: 6 albums; 
@@ -141,7 +142,7 @@ Shaman: 4 albums;
 Shining: 11 albums; 
 Skyclad: 14 albums; 
 Slayer: 10 albums; 
-Sodom: 14 albums; 
+Sodom: 16 albums; 
 Stratovarius: 1 album; 
 Suffocation: 8 albums; 
 Summoning: 8 albums; 
@@ -154,6 +155,7 @@ The Faceless: 1 album;
 The Privateer: 4 albums; 
 The Ramones: 20 songs in root folder.
 The Sisters of Mercy: 6 albums; 
+Theatre of Tragedy: 13 songs in root folder.
 Therion: 18 albums; 
 Thy Light: 3 albums; 
 Tiamat: 9 albums; 
