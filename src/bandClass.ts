@@ -254,7 +254,7 @@ class MetalAlbum {
             filtered = split.join(' ').trim();
         }
 
-        return filtered.replace('_', ' ').trim();
+        return replaceAll(filtered, '_', ' ').trim();
     }
 
     private removeAnnotation(str: string, annStart: string, annEnd: string) {
