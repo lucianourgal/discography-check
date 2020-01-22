@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const debugMode = false;
 
+// Interfaces
 interface metallumSearchResult {
     genre: string;
     country: string;
@@ -23,6 +24,11 @@ interface metallumBandData {
     albums: metallumAlbum[];
 }
 
+// Main Function
+/**
+ * @description Makes HTTP requests to metallum website to return data from some metal band
+ * @param bandName band name string
+ */
 const metallumDiscographyByBandName = async (bandName: string): Promise<metallumBandData[]> => {
     const bandOptions: metallumSearchResult[] = await metallumSearchBand(bandName);
     if (!bandOptions || !bandOptions.length) {
@@ -47,7 +53,12 @@ const metallumDiscographyByBandName = async (bandName: string): Promise<metallum
     return response;
 }
 
+// Inner functions
 
+/**
+ * @description Makes the first metallum HTTP request to find band options with this name
+ * @param bandName band name string
+ */
 const metallumSearchBand = async (bandName: string): Promise<metallumSearchResult[]> => {
 
     const url = 'https://www.metal-archives.com/search/ajax-band-search/?field=name&query=' + bandName +
@@ -72,6 +83,11 @@ const metallumSearchBand = async (bandName: string): Promise<metallumSearchResul
         })
 }
 
+/**
+ * @description Makes the second metallum HTTP request. Loads band link to find discography URL
+ * @param url URL returned at first metallum HTTP request which indicates band main page address
+ * @param bandName band name string
+ */
 const metallumGetDiscographyUrl = async (url: string, bandName: string): Promise<string> => {
 
     return await axios.get(url)
@@ -88,6 +104,11 @@ const metallumGetDiscographyUrl = async (url: string, bandName: string): Promise
 
 }
 
+/**
+ * @description Makes the third and last metallum HTTP request. Loads discography data
+ * @param url URL returns at second metallum HTTP request, which indicates band discography table address
+ * @param bandName band name string
+ */
 const metallumGetDiscography = async (url: string, bandName?: string): Promise<metallumAlbum[]> => {
 
     const albums: metallumAlbum[] = [];
@@ -114,7 +135,7 @@ const metallumGetDiscography = async (url: string, bandName?: string): Promise<m
                             let reviewCount = '';
                             let reviewsAverage = '';
 
-                            if(r.length > 1) {
+                            if (r.length > 1) {
                                 reviews = r[1].split('</a>')[0];
 
                                 reviewCount = reviews.split('(')[0].trim();

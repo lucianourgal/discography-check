@@ -5,6 +5,11 @@ import { flatten } from 'lodash';
 
 export const songsFormats = ['mp3', 'wma', 'wav', 'ogg', 'flac', 'm4a', 'aac'];
 
+/**
+ * @description Reads folder structure to create a .json file and MetalFolder object
+ * @param folder root folder address
+ * @returns MetalFolder object
+ */
 export const readFolders = (folder: string): MetalFolder => {
 
     const folderStructureFile = 'outputs/folderStructure.json'
@@ -21,18 +26,24 @@ export const readFolders = (folder: string): MetalFolder => {
     return null;
 }
 
-export const extractMetalBandsFromMetalFolder = (folder: MetalFolder, genreFoldersBelow: boolean = false): MetalBand[] => {
+/**
+ * @description Uses a MetalFolder object to create a array of MetalBand objects
+ * @param folderObj folder structure object
+ * @param genreFoldersBelow Set this as true if you have a structure like: MainFolder -> GenreFolders -> BandFolders
+ * @returns MetalBand objects array
+ */
+export const extractMetalBandsFromMetalFolder = (folderObj: MetalFolder, genreFoldersBelow: boolean = false): MetalBand[] => {
 
     if (genreFoldersBelow) {
-        const genreFolders = folder.children;
+        const genreFolders = folderObj.children;
         const metalBandFolders: MetalBand[] = flatten(genreFolders.map(genreFolder => genreFolder.children.map(bandFolder => new MetalBand(bandFolder))));
         return metalBandFolders;
     } else {
-        if (!folder) {
+        if (!folderObj) {
             console.log('[Error] Folder not found! Are you sure this is the right address?')
             return null;
         }
-        return folder.children.map(bandFolder => new MetalBand(bandFolder));
+        return folderObj.children.map(bandFolder => new MetalBand(bandFolder));
     }
 
 }
@@ -64,13 +75,20 @@ export enum Type {
     File = "file",
 }
 
-// Converts JSON strings to/from your types
 export class Convert {
+    /**
+     * @description Turns json string into MetalFolder object
+     * @param json string
+     */
     public static toMetalFolder(json: string): MetalFolder {
         return JSON.parse(json);
     }
 
-    public static metalFolderToJson(value: MetalFolder): string {
-        return JSON.stringify(value);
+    /**
+     * @description Turns MetalFolder object into json string
+     * @param object MetalFolder object
+     */
+    public static metalFolderToJson(object: MetalFolder): string {
+        return JSON.stringify(object);
     }
 }

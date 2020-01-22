@@ -4,9 +4,13 @@ import { flatten } from 'lodash'
 import { accentFold } from '@stefancfuchs/utils'
 import { metallumAlbum } from './metallumRequest';
 
+/**
+ * @description Generates multiple txt and csv reports about hard drive bands and albums
+ * @param bandObjs Hard drive array of objects
+ */
 export const generateReportOutputs = (bandObjs: MetalBand[]) => {
 
-    if(!bandObjs) {
+    if (!bandObjs) {
         // console.log('[Error] Cant generate report from empty metal band');
         return null;
     }
@@ -30,7 +34,11 @@ export const generateReportOutputs = (bandObjs: MetalBand[]) => {
     console.log('Reports about your local metal library were saved to outputs folder');
 }
 
-
+/**
+ * @description Wraps writeFileSync into a try catch
+ * @param fileName file name
+ * @param text file content
+ */
 const writeFileTryCatchWrap = (fileName: string, text: string) => {
     try {
         writeFileSync(fileName, text);
@@ -39,6 +47,11 @@ const writeFileTryCatchWrap = (fileName: string, text: string) => {
     }
 }
 
+/**
+ * @description Summarizes bands info into a report array
+ * @param bands MetalBand array of objects
+ * @returns report string
+ */
 const metalBandsArrMetadata = (bands: MetalBand[]) => {
     let albunsCounts = bands.map(band => band.getAlbunsCount());
     let songsCounts = bands.map(band => band.getSongsInChildsCount());
@@ -51,34 +64,61 @@ const metalBandsArrMetadata = (bands: MetalBand[]) => {
         '\n\n';
 }
 
-
+/**
+ * @description Removes multiple special characters and useless spaces from string to standartize it
+ * @param str1 String to be normalized
+ * @returns Standartized string
+ */
 export const standString = (str1: string) => {
     let norm = str1.toLowerCase();
-    norm = replaceAll_Arr(norm, ['.',',', '?', "!", ":", "'", '/', '-', '–', '"'], '');
+    norm = replaceAll_Arr(norm, ['.', ',', '?', "!", ":", "'", '/', '-', '–', '"'], '');
     norm = replaceAll(norm, '  ', ' ');
     return accentFold(norm).trim();
 }
 
+/**
+ * @description custom javascript sleep function
+ * @param ms miliseconds to be awaited
+ */
 export const sleep = (ms: number) => {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+}
 
-export const missingAlbumLine = (ma: metallumAlbum) => {
+/**
+ * @description Turns metallumAlbum interface into a string to be used in csv reports
+ * @param ma Metallum album interface
+ * @returns formatted string 
+ */
+export const missingAlbumLine = (ma: metallumAlbum): string => {
     return ma.band + ';' + ma.name + ';' + ma.year + ';' + ma.reviewCount + ';' + ma.reviewsAverage
 }
 
-export const replaceAll_Arr = (str: string, toBeReplaced: string[], toBePut: string) => {
+/**
+ * @description Wraps replaceAll function to allow a array of chars/strings to be replaced
+ * @param str String to be changed
+ * @param toBeReplaced String array of strings to be replaced
+ * @param toBePut Character or string to be put in place of previous param
+ * @returns modified str param
+ */
+export const replaceAll_Arr = (str: string, toBeReplaced: string[], toBePut: string): string => {
     let s = str;
-    for(let x=0;x<toBeReplaced.length;x++) {
+    for (let x = 0; x < toBeReplaced.length; x++) {
         s = replaceAll(s, toBeReplaced[x], toBePut);
     }
     return s;
 }
 
-export const replaceAll = (str: string, toBeReplaced: string, toBePut: string) => {
+/**
+ * @description replaces all appeareances of some char/string in some string
+ * @param str String to be changed
+ * @param toBeReplaced Character or string to be replaced
+ * @param toBePut Character or string to be put in place of previous param
+ * @returns modified str param
+ */
+export const replaceAll = (str: string, toBeReplaced: string, toBePut: string): string => {
     let s = str;
     let keepReplacing = str.includes(toBeReplaced);
-    while(keepReplacing) {
+    while (keepReplacing) {
         s = s.replace(toBeReplaced, toBePut);
         keepReplacing = s.includes(toBeReplaced);
     }
