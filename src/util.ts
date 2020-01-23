@@ -8,30 +8,30 @@ import { metallumAlbum } from './metallumRequest';
  * @description Generates multiple txt and csv reports about hard drive bands and albums
  * @param bandObjs Hard drive array of objects
  */
-export const generateReportOutputs = (bandObjs: MetalBand[]) => {
+export const generateLocalFilesReportOutputs = (bandObjs: MetalBand[]): void => {
 
-    if (!bandObjs) {
+    if (!bandObjs || !bandObjs.length) {
         // console.log('[Error] Cant generate report from empty metal band');
-        return null;
+        return;
     }
 
-    bandObjs = bandObjs.filter(band => band.getIsBand())
+    bandObjs = bandObjs.filter(band => band.getIsBand());
     let reportFileName = '';
 
-    reportFileName = 'outputs/Your metal folders report.txt'
+    reportFileName = 'outputs/Your metal folders report.txt';
     const reports = bandObjs.map(el => el.getReport());
     writeFileTryCatchWrap(reportFileName, metalBandsArrMetadata(bandObjs) + reports.join('\n'));
 
-    reportFileName = 'outputs/You metal albums report.csv'
-    const bandAlbums = bandObjs.map(el => el.getBandAlbumList())
+    reportFileName = 'outputs/You metal albums report.csv';
+    const bandAlbums = bandObjs.map(el => el.getBandAlbumList());
     const bandAlbunsCsv = flatten(bandAlbums.map(band => band.albumNames.map((album: string): string => band.bandName + ';' + album)));
     writeFileTryCatchWrap(reportFileName, bandAlbunsCsv.join('\n'));
 
-    reportFileName = 'outputs/You metal albums naming errors.txt'
+    /*reportFileName = 'outputs/You metal albums naming errors.txt'
     const bandAlbunsErrors = bandObjs.map(el => el.getBandAlbumErrors()).filter(el => !!el);
-    writeFileTryCatchWrap(reportFileName, '\n' + bandAlbunsErrors.join(''));
+    writeFileTryCatchWrap(reportFileName, '\n' + bandAlbunsErrors.join(''));*/
 
-    console.log('Reports about your local metal library were saved to outputs folder');
+    console.log('[Ok] Reports about your local metal library were saved to outputs folder\n');
 }
 
 /**
@@ -39,11 +39,11 @@ export const generateReportOutputs = (bandObjs: MetalBand[]) => {
  * @param fileName file name
  * @param text file content
  */
-const writeFileTryCatchWrap = (fileName: string, text: string) => {
+const writeFileTryCatchWrap = (fileName: string, text: string): void => {
     try {
         writeFileSync(fileName, text);
     } catch (e) {
-        console.log('[ERROR] Could not save ' + fileName + ' to disk.')
+        console.log('[ERROR] Could not save ' + fileName + ' to disk.');
     }
 }
 
@@ -52,7 +52,7 @@ const writeFileTryCatchWrap = (fileName: string, text: string) => {
  * @param bands MetalBand array of objects
  * @returns report string
  */
-const metalBandsArrMetadata = (bands: MetalBand[]) => {
+const metalBandsArrMetadata = (bands: MetalBand[]): string => {
     let albunsCounts = bands.map(band => band.getAlbunsCount());
     let songsCounts = bands.map(band => band.getSongsInChildsCount());
 
@@ -60,8 +60,8 @@ const metalBandsArrMetadata = (bands: MetalBand[]) => {
     const albuns = albunsCounts.reduce(sumReducer, 0);
     const songs = songsCounts.reduce(sumReducer, 0);
 
-    return bands.length + ' bands, ' + albuns + ' albums and ' + songs + ' songs found.' +
-        '\n\n';
+    return bands.length + ' bands, ' + albuns + ' albums and ' +
+        songs + ' songs found.\n\n';
 }
 
 /**
@@ -69,7 +69,7 @@ const metalBandsArrMetadata = (bands: MetalBand[]) => {
  * @param str1 String to be normalized
  * @returns Standartized string
  */
-export const standString = (str1: string) => {
+export const standString = (str1: string): string => {
     let norm = str1.toLowerCase();
     norm = replaceAll_Arr(norm, ['.', ',', '?', "!", ":", "'", '/', '-', '–', '"'], '');
     norm = replaceAll(norm, '  ', ' ');
@@ -80,7 +80,7 @@ export const standString = (str1: string) => {
  * @description custom javascript sleep function
  * @param ms miliseconds to be awaited
  */
-export const sleep = (ms: number) => {
+export const sleep = (ms: number): Promise<void> => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 

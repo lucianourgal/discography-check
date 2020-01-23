@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { sleep } from './util';
 
 const debugMode = false;
 
@@ -40,7 +41,7 @@ const metallumDiscographyByBandName = async (bandName: string): Promise<metallum
         console.log('[Error] Band <<' + bandName + '>> has no url results');
         return null;
     }
-    const bandDiscographys: metallumAlbum[][] = await Promise.all(bandUrls.map(bandUrl => metallumGetDiscography(bandUrl, bandName)));
+    const bandDiscographys: metallumAlbum[][] = await Promise.all(bandUrls.map(bandUrl => metallumGetDiscography(bandUrl, 3, bandName)));
 
     const response: metallumBandData[] = [];
     for (let x = 0; x < bandOptions.length; x++) {
@@ -109,7 +110,7 @@ const metallumGetDiscographyUrl = async (url: string, bandName: string): Promise
  * @param url URL returns at second metallum HTTP request, which indicates band discography table address
  * @param bandName band name string
  */
-const metallumGetDiscography = async (url: string, bandName?: string): Promise<metallumAlbum[]> => {
+const metallumGetDiscography = async (url: string, remainingTries: number, bandName?: string): Promise<metallumAlbum[]> => {
 
     const albums: metallumAlbum[] = [];
     if (!url) return null;
@@ -153,14 +154,20 @@ const metallumGetDiscography = async (url: string, bandName?: string): Promise<m
                 bandName ? ' (' + bandName + ')' : '') + ' res.data is null');
             return null;
         })
-        .catch(err => {
+        .catch(async err => {
             console.log('[Error] Failed to retrieve metallum discography - ' + url + (
                 bandName ? ' (' + bandName + ')' : '') + err.message);
+
+            if (remainingTries) {
+                console.log('[OK] Retrying ' + remainingTries + ' more time' + (remainingTries === 1 ? '' : 's') + '...')
+                await sleep(415);
+                const response = await metallumGetDiscography(url, remainingTries - 1, bandName);
+                return response;
+            }
+
             return null;
         })
-
 }
-
 
 export {
     metallumSearchBand, metallumGetDiscographyUrl, metallumGetDiscography, // inner functions

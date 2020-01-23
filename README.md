@@ -1,5 +1,5 @@
 # discography-check
- Checks if your discographys are complete using metallum data
+- Checks if your discographys are complete using metallum data<br>
 
 # Project characteristics
 - Typescript language<br>
@@ -23,13 +23,15 @@
 - "2016 Atoma"<br>
 - "Dance And Laugh Amongst The Rotten (Deluxe Digibox) - 2017"<br>
 
-
 # Usage
 - Clone this repository <br>
 - Change "metalFolderAddress" variable value at index.ts<br>
 - Run "npm install"<br>
 - Run "npm start"<br>
 - Check reports at outputs folder<br>
+
+# Requiriments
+- NodeJS must be installed in your computer<br>
 
 # Usefull links
 - https://www.npmjs.com/package/directory-tree <br>

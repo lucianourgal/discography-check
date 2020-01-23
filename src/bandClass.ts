@@ -7,7 +7,7 @@ export class MetalBand {
 
     private albuns: MetalAlbum[];
     private name: string;
-    private genres: { name: string, momment: 'early' | 'mid' | 'late' }[];
+    //private genres: { name: string, momment: 'early' | 'mid' | 'late' }[];
     private isBand: boolean;
     private path: string;
     private songsInRootFolder: Child[];
@@ -20,7 +20,7 @@ export class MetalBand {
     constructor(bandData: Child) {
         this.name = bandData.name;
         this.albuns = [];
-        this.genres = [];
+        //this.genres = [];
         this.path = bandData.path;
         this.songsInRootFolder = getSongsFromChildArray(bandData.children);
 
@@ -53,7 +53,7 @@ export class MetalBand {
      * @description Makes request to metallum to get this band data, if available
      * @returns string report
      */
-    public async searchMetallumData() {
+    public async searchMetallumData(): Promise<string> {
 
         const possibleMetallumData: metallumBandData[] = await metallumDiscographyByBandName(this.name);
 
@@ -95,7 +95,7 @@ export class MetalBand {
      * @description Uses previous loaded metallum albums to compare with your hard drive band albums
      * @returns Albums from this band that weren't found in you hard drive but were at metallum
      */
-    public getMissingAlbums() {
+    public getMissingAlbums(): metallumAlbum[] {
 
         if (!this.metallumData) return null;
         const mAlbums = this.metallumData.albums;
@@ -138,7 +138,7 @@ export class MetalBand {
     /**
      * @returns discography completion boolean
      */
-    public getIsDiscographyComplete() {
+    public getIsDiscographyComplete(): boolean {
         return this.isDiscographyComplete;
     }
 
@@ -190,7 +190,7 @@ export class MetalBand {
     /**
      * @returns integer counter
      */
-    public songsInRootFolderCount() {
+    public songsInRootFolderCount(): number {
         return this.songsInRootFolder ? this.songsInRootFolder.length : 0;
     }
 
@@ -198,14 +198,14 @@ export class MetalBand {
     /**
      * @returns boolean indicating if there is metallum data related to this folder/band
      */
-    public isBandFoundAtMetallum() {
+    public isBandFoundAtMetallum(): boolean {
         return !!this.metallumData;
     }
 
     /**
      * @returns Band report about its songs and albums in this hard drive
      */
-    public getReport() {
+    public getReport(): string {
         const songsCount = this.songsInRootFolderCount();
         const albunsCount = this.getAlbunsCount();
 
