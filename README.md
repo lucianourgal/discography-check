@@ -30,7 +30,7 @@
 - Run "npm start"<br>
 - Check reports at outputs folder<br>
 
-# Requiriments
+# Requirements
 - NodeJS must be installed in your computer<br>
 
 # Usefull links
