@@ -1,11 +1,10 @@
 {
   "name": "discography-check",
-  "version": "0.1.0",
-  "description": "Checks if your metal discography is complete using metallum data",
+  "version": "1.0.0",
+  "description": "Checks if your metal discographys files are complete using metallum data",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node -r tsconfig-paths/register src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node -r tsconfig-paths/register src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -14,9 +13,16 @@
   "keywords": [
     "metal",
     "metallum",
-    "files"
+    "files",
+    "http requests",
+    "heavy metal",
+    "power metal",
+    "death metal",
+    "thrash metal",
+    "black metal",
+    "doom metal"
   ],
-  "author": "Luciano Urgal Pando and Tiago Stapenhorst Martins",
+  "author": "Luciano Urgal Pando",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lucianourgal/discography-check/issues"
