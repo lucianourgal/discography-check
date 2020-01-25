@@ -55,7 +55,7 @@ export const generateMetallumCompareReports = async (bandObjs: MetalBand[]): Pro
     const notFoundBands = bandObjs.filter(band => !band.isBandFoundAtMetallum());
     const notFoundBandsString = notFoundBands.map(cur => cur.getName() + ' - ' + cur.getAlbunsCount() + ' album(s) on disk').join('\n')
 
-    const textRepStart = 'Found discographys about ' + (bandObjs.length - failCount) + ' / ' + bandObjs.length + ' bands\n' +
+    const textRepStart = 'Found discographys at metallum about ' + (bandObjs.length - notFoundBands.length) + ' / ' + bandObjs.length + ' bands\n' +
         completeBands.length + ' bands have their discographys complete. \n' +
         'You have around ' + allMissingAlbums.length + ' missing albums.\n';
 
