@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { sleep } from './util';
+import { MetalBand } from './bandClass';
 
 const debugMode = false;
 
@@ -30,26 +31,43 @@ interface metallumBandData {
  * @description Makes HTTP requests to metallum website to return data from some metal band
  * @param bandName band name string
  */
-const metallumDiscographyByBandName = async (bandName: string): Promise<metallumBandData[]> => {
+const metallumDiscographyByBandName = async (bandName: string, bandObj?: MetalBand): Promise<metallumBandData[]> => {
     const bandOptions: metallumSearchResult[] = await metallumSearchBand(bandName);
     if (!bandOptions || !bandOptions.length) {
         console.log('[Error] Band <<' + bandName + '>> has no results');
         return null;
     }
+
     const bandUrls: string[] = await Promise.all(bandOptions.map(bandOpt => metallumGetDiscographyUrl(bandOpt.url, bandName)));
     if (!bandUrls || !bandUrls.length) {
         console.log('[Error] Band <<' + bandName + '>> has no url results');
         return null;
     }
-    const bandDiscographys: metallumAlbum[][] = await Promise.all(bandUrls.map(bandUrl => metallumGetDiscography(bandUrl, 3, bandName)));
 
     const response: metallumBandData[] = [];
     for (let x = 0; x < bandOptions.length; x++) {
-        response.push({
-            searchResult: bandOptions[x],
-            albums: bandDiscographys[x]
-        } as metallumBandData);
+
+        const bandDiscography: metallumAlbum[] = await metallumGetDiscography(bandUrls[x], 3, bandName);
+
+        let albumMatchesCount;
+        if (bandObj) {
+            albumMatchesCount = bandObj.countAlbumMatchs(bandDiscography);
+        }
+
+        if (!bandObj || albumMatchesCount) {
+            response.push({
+                searchResult: bandOptions[x],
+                albums: bandDiscography
+            } as metallumBandData);
+        }
+
+        if (albumMatchesCount > 2) {
+            console.log('[Ok] Band <<' + bandName + '>> was found at ' + (x + 1) + '° position (of ' +
+                bandOptions.length + ' option' + (bandOptions.length > 1 ? 's' : '') + ') with ' + albumMatchesCount + ' album matches!');
+            x = bandOptions.length; // exits this for loop
+        }
     }
+    // todo check if band has a match
 
     return response;
 }

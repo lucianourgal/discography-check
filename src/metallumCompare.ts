@@ -45,7 +45,7 @@ export const generateMetallumCompareReports = async (bandObjs: MetalBand[]): Pro
         }
 
         // avoid overcharging metallum
-        await sleep(200);
+        // await sleep(100); -- Uncomment this if you are being blocked by metallum
     }
 
     allMissingAlbums = allMissingAlbums.sort((a, b) => b.year - a.year);

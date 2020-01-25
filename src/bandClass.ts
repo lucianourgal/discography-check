@@ -49,13 +49,31 @@ export class MetalBand {
         this.albuns = unfilteredAlbuns.filter(el => el.getIsAlbum())
     }
 
+
+    /**
+     * @description counts number of album name matches between your hard drive folder and some metallum band object
+     * @param mObj object containing metallum info about some band
+     */
+    public countAlbumMatchs = (mObjs: metallumAlbum[]) => {
+        const mAlb = mObjs &&  mObjs.map(album => standString(album.name));
+        const folderAlbumNames = this.getBandAlbumList().albumNames.map(s => standString(s));
+        let count = 0;
+
+        for (let a = 0; a < mAlb.length; a++) { // metallum album by metallum album
+            if (folderAlbumNames.includes(mAlb[a])) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     /**
      * @description Makes request to metallum to get this band data, if available
      * @returns string report
      */
     public async searchMetallumData(): Promise<string> {
 
-        const possibleMetallumData: metallumBandData[] = await metallumDiscographyByBandName(this.name);
+        const possibleMetallumData: metallumBandData[] = await metallumDiscographyByBandName(this.name, this);
 
         if (!possibleMetallumData) {
             return '[Error] Nothing was found related to band <<' + this.name + '>>.';
@@ -63,17 +81,11 @@ export class MetalBand {
 
         let closestMatch: metallumBandData;
         let closestMatchCount = 0;
-        const folderAlbumNames = this.getBandAlbumList().albumNames.map(s => standString(s));
 
         for (let x = 0; x < possibleMetallumData.length; x++) { // check bands possibilities 
-            let count = 0;
-            const mAlb = possibleMetallumData[x].albums && possibleMetallumData[x].albums.map(album => standString(album.name));
-            if (mAlb)
-                for (let a = 0; a < mAlb.length; a++) { // metallum album by metallum album
-                    if (folderAlbumNames.includes(mAlb[a])) {
-                        count++;
-                    }
-                }
+            
+            const count: number = this.countAlbumMatchs(possibleMetallumData[x].albums);
+
             // check if this is the closest match
             if (count > closestMatchCount) {
                 closestMatchCount = count;
@@ -83,8 +95,8 @@ export class MetalBand {
 
         if (closestMatch) {
             const report = '[Ok] Band <<' + this.name + '>> has a match! ' + closestMatchCount + ' album matchs. ' +
-                '(metallum ' + closestMatch.albums.length + ', HD ' + this.getAlbunsCount() + ')';
-            console.log(report);
+                '(metallum ' + closestMatch.albums.length + ', HD ' + this.getAlbunsCount() + ')'; 
+            //console.log(report);
             this.metallumData = closestMatch;
             return report;
         }

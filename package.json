@@ -1,6 +1,6 @@
 {
   "name": "discography-check",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "Checks if your metal discographys files are complete using metallum data",
   "main": "index.ts",
   "scripts": {
@@ -13,6 +13,7 @@
   "keywords": [
     "metal",
     "metallum",
+    "metal archives",
     "files",
     "http requests",
     "heavy metal",
