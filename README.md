@@ -1,3 +1,4 @@
+[![buy_me_a_coffee_badge](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://www.buymeacoffee.com/lucianourgal)
 # discography-check
 - Checks if your discographys are complete using metallum data<br>
 
