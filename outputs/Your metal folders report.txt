@@ -1,12 +1,13 @@
-176 bands, 1189 albums and 12170 songs found.
+185 bands, 1268 albums and 12929 songs found.
 
 Acid Witch: 6 albums; 
+Advent Sorrow: 6 albums; 
 Agalloch: 9 albums; 
 Airbourne: 2 albums; 
 Alcest: 3 albums; 
 Alice Cooper: 10 songs in root folder.
 Amon Amarth: 12 albums; 
-Amorphis: 5 albums; 
+Amorphis: 13 albums; 
 Andre Matos: 4 albums; 
 Angra: 9 albums; 
 Annihilator: 10 albums; 
@@ -14,10 +15,12 @@ Anthrax: 14 songs in root folder.
 Arch Enemy: 9 albums; 
 Arkan: 4 albums; 
 Asphyx: 8 albums; 
-At The Gates: 12 albums; 
+At The Gates: 10 albums; 
 Atheist: 4 albums; 
+Barathrum: 9 albums; 
 Bathory: 12 albums; 
 Batushka: 2 albums; 
+Before The Dawn: 7 albums; 
 Beherit: 12 albums; 
 Benediction: 9 albums; 
 Beyond Creation: 3 albums; 
@@ -27,8 +30,9 @@ Bolt Thrower: 10 albums;
 Borknagar: 12 albums; 
 Burzum: 10 albums; 
 Caladan Brood: 1 album; 
+Cancer: 3 albums; 
 Candlemass: 3 albums; 
-Cannibal Corpse: 11 albums; 
+Cannibal Corpse: 12 albums; 
 Carach Angren: 5 albums; 
 Carcass: 8 albums; 
 Carpathian Forest: 11 albums; 
@@ -37,12 +41,13 @@ Celtic Frost: 6 albums;
 Children of Bodom: 9 albums; 
 Claustrofobia: 5 albums; 
 Coroner: 8 albums; 
-Crashdiet: 2 albums; 
+Craft: 5 albums; 
+Crashdïet: 5 albums; 
 Crom: 1 album; 
 Cryptopsy: 7 albums; 
 Danzig: 22 songs in root folder.
 Dark Forest: 3 albums; 
-Dark Fortress: 12 albums; 
+Dark Fortress: 13 albums; 
 Dark Moor: 2 albums; 
 Dark Tranquillity: 2 albums; 
 Darkthrone: 18 albums; 
@@ -56,7 +61,7 @@ Draconian: 5 albums;
 Dvd do fabio: 3 albums; 
 Dying Fetus: 8 albums; 
 Electric Wizard: 7 albums; 
-Eluveitie: 6 albums; 
+Eluveitie: 7 albums; 
 Enisum: 3 albums; 
 Enthroned: 11 albums; 
 Equilibrium: 5 albums; 
@@ -69,12 +74,14 @@ FinnTroll: 7 albums;
 Folkodia: 2 albums; 
 Foo Fighters: 16 songs in root folder.
 Frigoris: 1 album; 
-Ghost: 2 albums; 
+Ghost: 4 albums; 
 Gormathon: Nothing found.
-Grave Digger: 18 albums; 
+Grave Digger: 19 albums; 
 Hammerfall: 9 albums; 
+Harakiri For The Sky: 4 albums; 
 Hardcore Superstar: 4 albums; 
 Havok: 4 albums; 
+HellLight: 7 albums; 
 Helloween: 4 albums; 
 Holy Moses: 11 albums; 
 Hypocrisy: 12 albums; 
@@ -82,21 +89,21 @@ Iced Earth: 1 album;
 Immortal: 10 albums; 
 In Extremo: 11 albums; 
 In Solitude: 3 albums; 
-Insomnium: 6 albums; 
+Insomnium: 9 albums; 
 Iron Maiden: 16 albums; 
 Judas Priest: 17 songs in root folder.
 Kamelot: 12 songs in root folder.
 Kataklysm: 9 albums; 
 Katatonia: 10 albums; 
 King Diamond: 12 albums; 
-Korpiklaani: 8 albums; 
+Korpiklaani: 9 albums; 
 Korzus: 7 albums; 1 songs in root folder.
 Kreator: 15 albums; 
-Krisiun: 4 albums; 
+Krisiun: 5 albums; 
 Lamúria Abissal: 1 album; 
-Lordi: 5 albums; 
+Lordi: 6 albums; 
 Manowar best: 14 songs in root folder.
-Marduk: 30 albums; 
+Marduk: 29 albums; 
 Matanza: 5 albums; 
 Megadeth: 19 albums; 
 Mercyful Fate: 8 albums; 
@@ -109,15 +116,17 @@ Morbid Angel: 8 albums;
 Motorhead: 25 albums; 
 Municipal Waste: 4 albums; 
 Murder rape: 4 songs in root folder.
+My Dying Bride Compilation: 3 albums; 
 Nargaroth: 14 albums; 
 Necrophagist: 3 albums; 
+Necrophobic: 8 albums; 
 Necropsya: 14 songs in root folder.
 Nevermore: 10 albums; 
-Nile: 7 albums; 
+Nile: 9 albums; 
 Norther: 11 albums; 
 Nuclear Assault: 6 albums; 
 Obituary: 10 albums; 
-Obscura: 4 albums; 
+Obscura: 5 albums; 
 Outros: 2 albums; 8 songs in root folder.
 Ozzy osbourne: 9 albums; 
 Pantera: 6 albums; 
@@ -125,16 +134,17 @@ Paradise Lost: 15 albums;
 Peste Noire: 2 albums; 
 Pestilence: 10 albums; 
 Plaga: 3 albums; 
-Possessed: 15 albums; 
+Possessed: 16 albums; 
 Powerwolf: 9 albums; 
 Primordial: 7 albums; 
 Psychonaut 4: 4 albums; 
 Rammstein: 7 albums; 
-Rotting Christ: 12 albums; 
+Rotting Christ: 14 albums; 
 Sabaton: 2 albums; 
 Sarcófago: 6 albums; 
+Sargeist: Nothing found.
 Satanic Warmaster: 11 albums; 
-Satyricon: 8 albums; 
+Satyricon: 9 albums; 
 Saxon: 5 albums; 
 Scorpions: 16 songs in root folder.
 Sepultura: 2 albums; 
@@ -142,27 +152,26 @@ Shaman: 4 albums;
 Shining: 11 albums; 
 Skyclad: 14 albums; 
 Slayer: 10 albums; 
-Sodom: 16 albums; 
+Sodom: 15 albums; 
 Stratovarius: 1 album; 
 Suffocation: 8 albums; 
 Summoning: 8 albums; 
-Taake: 5 albums; 
+Taake: 6 albums; 
 Talamyus: 1 album; 
 Tankard: 15 albums; 
 Testament: 13 albums; 
-The 69 eyes: 12 albums; 
+The 69 eyes: 11 albums; 
 The Faceless: 1 album; 
 The Privateer: 4 albums; 
 The Ramones: 20 songs in root folder.
 The Sisters of Mercy: 6 albums; 
-Theatre of Tragedy: 13 songs in root folder.
 Therion: 18 albums; 
 Thy Light: 3 albums; 
 Tiamat: 9 albums; 
 Tsjuder: 6 albums; 
 Turisas: 3 albums; 
 Type O Negative: 7 albums; 
-TYR: 3 albums; 
+TYR: 4 albums; 
 Uada: 2 albums; 
 Unleashed: 12 albums; 
 Urgehal: 11 albums; 

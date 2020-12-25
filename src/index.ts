@@ -6,7 +6,7 @@ import { generateMetallumCompareReports } from './metallumCompare';
 //metallumDiscographyByBandName('darkthrone') // search band example
 
 // Your metal folder location
-const metalFolderAddress = 'E:\\Music';
+const metalFolderAddress = 'D:\\Music';
 
 // Reads all subfolders from selected folder
 const metalFolderObj: MetalFolder = readFolders(metalFolderAddress);

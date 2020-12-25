@@ -57,6 +57,8 @@ export class MetalBand {
     public countAlbumMatchs = (mObjs: metallumAlbum[]) => {
         const mAlb = mObjs &&  mObjs.map(album => standString(album.name));
         const folderAlbumNames = this.getBandAlbumList().albumNames.map(s => standString(s));
+        
+        if(!mAlb || mAlb.length) return 0;
         let count = 0;
 
         for (let a = 0; a < mAlb.length; a++) { // metallum album by metallum album
