@@ -34,11 +34,11 @@ interface metallumBandData {
 const metallumDiscographyByBandName = async (bandName: string, bandObj?: MetalBand): Promise<metallumBandData[]> => {
     const bandOptions: metallumSearchResult[] = await metallumSearchBand(bandName);
     if (!bandOptions || !bandOptions.length) {
-        console.log('[Error] Band <<' + bandName + '>> has no results');
+        console.log('[Error] Band <<' + bandName + '>> has no results (' + (!!bandOptions ? '0 length array' : 'null array') + ')');
         return null;
     }
 
-    const bandUrls: string[] = await Promise.all(bandOptions.map(bandOpt => metallumGetDiscographyUrl(bandOpt.url, bandName)));
+    const bandUrls: string[] = await Promise.all(bandOptions.map(async bandOpt => metallumGetDiscographyUrl(bandOpt.url, bandName)));
     if (!bandUrls || !bandUrls.length) {
         console.log('[Error] Band <<' + bandName + '>> has no url results');
         return null;
@@ -48,10 +48,13 @@ const metallumDiscographyByBandName = async (bandName: string, bandObj?: MetalBa
     for (let x = 0; x < bandOptions.length; x++) {
 
         const bandDiscography: metallumAlbum[] = await metallumGetDiscography(bandUrls[x], 3, bandName);
+        //console.log(bandName, bandDiscography.length)
 
-        let albumMatchesCount;
+        let albumMatchesCount: number;
         if (bandObj) {
             albumMatchesCount = bandObj.countAlbumMatchs(bandDiscography);
+        } else {
+            console.log('[Error] No bandObj for ' + bandName);
         }
 
         if (!bandObj || albumMatchesCount) {
@@ -87,6 +90,7 @@ const metallumSearchBand = async (bandName: string): Promise<metallumSearchResul
     return await axios.get(url)
         .then(res => {
             const bulk = res.data.aaData
+            //console.log(bulk.length)
 
             results = bulk.map(band => ({
                 genre: band[1], country: band[2],
@@ -113,6 +117,7 @@ const metallumGetDiscographyUrl = async (url: string, bandName: string): Promise
         .then(res => {
             const split = String(res.data).split('<span>Complete discography</span>');
             const urlFound = split[1].split('"')[1];
+            //console.log(urlFound)
 
             return urlFound;
         })
@@ -133,18 +138,19 @@ const metallumGetDiscography = async (url: string, remainingTries: number, bandN
     const albums: metallumAlbum[] = [];
     if (!url) return null;
 
-    return await axios.get(url)
+    return axios.get(url)
         .then(res => {
             const str = String(res.data);
             if (str) {
                 const trSplit = str.split('<tbody>')[1].split('<tr>');
-
+                //console.log('tdSplit.length', trSplit.length);
 
                 for (let x = 1; x < trSplit.length; x++) {
                     if (trSplit[x]) {
                         const tdSplit = trSplit[x].split('<td>');
 
                         if (tdSplit[1] && tdSplit[2] && tdSplit[3]) {
+
                             const name = tdSplit[1].split('">')[1].split('</a>')[0];
                             const type = tdSplit[2].split('</td')[0];
                             const year = parseInt(tdSplit[3].split('</td')[0]);
@@ -166,6 +172,7 @@ const metallumGetDiscography = async (url: string, remainingTries: number, bandN
                 }
                 if (debugMode) console.log(albums.map(cur => cur.name + ', ' + cur.type + ', ' + cur.year).join('\n'));
 
+                //console.log(bandName, albums.length)
                 return albums;
             }
             console.log('[Error] Failed to retrieve metallum discography - ' + url + (

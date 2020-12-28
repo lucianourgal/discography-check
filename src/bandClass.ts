@@ -55,10 +55,14 @@ export class MetalBand {
      * @param mObj object containing metallum info about some band
      */
     public countAlbumMatchs = (mObjs: metallumAlbum[]) => {
-        const mAlb = mObjs &&  mObjs.map(album => standString(album.name));
-        const folderAlbumNames = this.getBandAlbumList().albumNames.map(s => standString(s));
-        
-        if(!mAlb || mAlb.length) return 0;
+        const mAlb: string[] = mObjs && mObjs.map(album => standString(album.name));
+        const folderAlbumNames: string[] = this.getBandAlbumList().albumNames.map(s => standString(s));
+
+        if (!mAlb || !mAlb.length) {
+            /*console.log('[Error at countAlbumMatchs] No albums found for band ' + this.name +
+                ' (' + (!mAlb ? 'Null array' : '0 length array') + ')');*/
+            return 0;
+        }
         let count = 0;
 
         for (let a = 0; a < mAlb.length; a++) { // metallum album by metallum album
@@ -82,10 +86,10 @@ export class MetalBand {
         }
 
         let closestMatch: metallumBandData;
-        let closestMatchCount = 0;
+        let closestMatchCount: number = 0;
 
         for (let x = 0; x < possibleMetallumData.length; x++) { // check bands possibilities 
-            
+
             const count: number = this.countAlbumMatchs(possibleMetallumData[x].albums);
 
             // check if this is the closest match
@@ -97,7 +101,7 @@ export class MetalBand {
 
         if (closestMatch) {
             const report = '[Ok] Band <<' + this.name + '>> has a match! ' + closestMatchCount + ' album matchs. ' +
-                '(metallum ' + closestMatch.albums.length + ', HD ' + this.getAlbunsCount() + ')'; 
+                '(metallum ' + closestMatch.albums.length + ', HD ' + this.getAlbunsCount() + ')';
             //console.log(report);
             this.metallumData = closestMatch;
             return report;

@@ -10,28 +10,31 @@ import { writeFileSync } from 'fs';
 export const generateMetallumCompareReports = async (bandObjs: MetalBand[]): Promise<void> => {
 
     if (!bandObjs || !bandObjs.length) {
+        console.log('[Error] No bandObjs received at generateMetallumCompareReports()')
         return;
     }
+    console.log('[generateMetallumCompareReports] ' + bandObjs.length + ' bands to search');
 
-    let missingAlbunsCsv = 'Band;Album;Year;Reviews Count;Reviews Average\n';
+    let missingAlbunsCsv: string = 'Band;Album;Year;Reviews Count;Reviews Average\n';
     let allMissingAlbums: metallumAlbum[] = [];
-    let albumSearchReport = '';
-    let albumSearchReportCsv = 'Band; Missing Count; Metallum Count; HD albuns count; Completion rate; Missing albums; HD album options';
-    let textReport = '';
+    let albumSearchReport: string = '';
+    let albumSearchReportCsv: string = 'Band; Missing Count; Metallum Count; HD albuns count; Completion rate; Missing albums; HD album options';
+    let textReport: string = '';
 
-    let failCount = 0;
+    let failCount: number = 0;
 
     // Band completion check loop
     for (let x = 0; x < bandObjs.length; x++) {
+        //console.log('band ' + x);
 
         const cur = bandObjs[x];
 
         // Extracts infos about found bands from metallum
-        const textLine = await cur.searchMetallumData();
+        const textLine: string = await cur.searchMetallumData();
         if (textLine) textReport += textLine + '\n';
 
         // Checks which albums are missing for each band
-        let missingAlbums = cur.getMissingAlbums()
+        let missingAlbums: metallumAlbum[] = cur.getMissingAlbums();
         if (missingAlbums && missingAlbums.length) {
             allMissingAlbums.push(...missingAlbums);
         } else {
@@ -45,15 +48,15 @@ export const generateMetallumCompareReports = async (bandObjs: MetalBand[]): Pro
         }
 
         // avoid overcharging metallum
-        // await sleep(100); -- Uncomment this if you are being blocked by metallum
+        await sleep(100); //-- Uncomment this if you are being blocked by metallum
     }
 
     allMissingAlbums = allMissingAlbums.sort((a, b) => b.year - a.year);
     missingAlbunsCsv += allMissingAlbums.map(ma => missingAlbumLine(ma)).join('\n');
 
-    const completeBands = bandObjs.filter(band => band.getIsDiscographyComplete());
-    const notFoundBands = bandObjs.filter(band => !band.isBandFoundAtMetallum());
-    const notFoundBandsString = notFoundBands.map(cur => cur.getName() + ' - ' + cur.getAlbunsCount() + ' album(s) on disk').join('\n')
+    const completeBands: MetalBand[] = bandObjs.filter(band => band.getIsDiscographyComplete());
+    const notFoundBands: MetalBand[] = bandObjs.filter(band => !band.isBandFoundAtMetallum());
+    const notFoundBandsString: string = notFoundBands.map(cur => cur.getName() + ' - ' + cur.getAlbunsCount() + ' album(s) on disk').join('\n');
 
     const textRepStart = 'Found discographys at metallum about ' + (bandObjs.length - notFoundBands.length) + ' / ' + bandObjs.length + ' bands\n' +
         completeBands.length + ' bands have their discographys complete. \n' +
